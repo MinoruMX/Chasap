@@ -32,7 +32,7 @@
 1. **Clona este repositorio:**  
    ```sh
    git clone https://github.com/MinoruMX/Chasap.git
-   cd chasap
+   cd Chasap
    cd backend
    ```
 
