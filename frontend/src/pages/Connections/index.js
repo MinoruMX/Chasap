@@ -579,7 +579,7 @@ const Connections = () => {
                         </Box>
                         {whatsApp.isDefault && (
                           <Chip
-                            label="Padrão"
+                            label="Principal"
                             size="small"
                             icon={<CheckCircle fontSize="small" />}
                             className={classes.defaultBadge}
