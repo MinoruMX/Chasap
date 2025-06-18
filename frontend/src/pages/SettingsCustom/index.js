@@ -170,9 +170,9 @@ const SettingsCustom = () => {
           {schedulesEnabled && <Tab label="Horários" value={"schedules"} />}
 		  {isSuper() ? <Tab label="Logo" value={"uploader"} /> : null}
           {isSuper() ? <Tab label="Empresas" value={"companies"} /> : null}
-		  {isSuper() ? <Tab label="Cadastrar Empresa" value={"newcompanie"} /> : null}
-          {isSuper() ? <Tab label="Planos" value={"plans"} /> : null}
-          {isSuper() ? <Tab label="Ajuda" value={"helps"} /> : null}
+		  {isSuper() ? <Tab label="Registrar Empresa" value={"newcompanie"} /> : null}
+          {isSuper() ? <Tab label="Planes" value={"plans"} /> : null}
+          {isSuper() ? <Tab label="Ayuda" value={"helps"} /> : null}
         </Tabs>
         <Paper className={classes.paper} elevation={0}>
           <TabPanel
