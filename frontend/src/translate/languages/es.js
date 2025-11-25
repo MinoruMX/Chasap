@@ -34,6 +34,7 @@ const messages = {
         form: {
           name: "Nombre",
           users: "Usuarios",
+          superls: "Permisos de Super Admin?",
           connections: "Conexiones",
           campaigns: "Campañas",
           schedules: "Agendamientos",
@@ -44,7 +45,7 @@ const messages = {
           save: "Guardar",
           yes: "Sí",
           no: "No",
-          money: "€",
+          money: "Gs.",
         },
       },
       companies: {
@@ -71,7 +72,7 @@ const messages = {
         },
         agent: "Agente",
         evaluations: "Evaluaciones",
-        tmConversations: "TM. Conversa",
+        tmConversations: "TM. Conversac.",
         status: "Online",
       },
       connections: {
@@ -341,6 +342,7 @@ const messages = {
           edit: "Editar usuario",
         },
         form: {
+          SuperIs: "Permisos de Super Admin?",
           name: "Nombre",
           email: "Correo electrónico",
           password: "Contraseña",
@@ -411,7 +413,7 @@ const messages = {
       },
       tickets: {
         inbox: {
-          closedalltickets: "¿Cerrar todos los tickets?",
+          closedAllTickets: "¿Cerrar todos los tickets?",
           closedAll: "Cerrar Todos",
           newTicket: "Nuevo Ticket",
           yes: "si",
@@ -431,7 +433,7 @@ const messages = {
           search: { title: "Búsqueda" }
         },
         search: {
-          placeHolder: "Buscar atención y mensajes",
+          placeholder: "Buscar atención y mensajes",
           filterConnections: "Filtro por conexiones",
           filterContacts: "Filtro por contacto",
           filterConections: "Filtro por Conexión",
@@ -506,14 +508,13 @@ const messages = {
           prompts: "Open.AI",
           reports: "Informes",
           queueIntegration: "Integraciones",
-          quickMessages: "Respuestas Rápidas",
-          LogLauncher: "Noticias",
+          LogLauncher: "Logs",
         },
         appBar: {
           notRegister: "Sin notificaciones",
           user: {
             profile: "Perfil",
-            logout: "Salir"
+            logout: "Cerrar Sesión"
           }
         },
         menuNew: {
@@ -620,7 +621,7 @@ const messages = {
         },
         dialog: {
           title: "Mensaje Rápido",
-          shortCode: "Acceso directo",
+          shortcode: "Acceso directo",
           message: "Respuesta",
           save: "Guardar",
           cancel: "Cancelar",
@@ -635,7 +636,6 @@ const messages = {
           actions: "Acciones",
           mediaName: "Nombre del archivo",
           status: "Global",
-          mediaName: "Archivo",
         }
       },
       messageVariablesPicker: {
@@ -1003,12 +1003,14 @@ const messages = {
       messagesInput:{
         signMessage: "Firma",
         placeholderOpen:  "Escribe un mensaje...",
+        placeholderClosed: "Reabra, para poder escribir",
       },
       messagesList:{
         header: {
           assignedTo: "Asignado a",
           buttons: {
             return: "Devolver",
+            reopen: "Reabrir",
             resolve: "Resolver",
           },
         }
@@ -1041,7 +1043,7 @@ const messages = {
         delete: "Eliminar",
       },
       qrCodeModal:{
-        title: "CHASAP - QR Code",
+        title: "CRM-SAASTECH - QR Code",
       }
     },
   },

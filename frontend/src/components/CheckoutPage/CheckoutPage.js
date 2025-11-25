@@ -29,7 +29,7 @@ import Invoices from "../../pages/Financeiro";
 
 
 export default function CheckoutPage(props) {
-  const steps = ["Datos", "Personalizar", "Revisar"];
+  const steps = ["Datos", "Plan", "Revisar"];
   const { formId, formField } = checkoutFormModel;
   
   

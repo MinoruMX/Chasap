@@ -130,11 +130,11 @@ const CampaignReport = () => {
   const formatStatus = (val) => {
     switch (val) {
       case "INATIVA":
-        return "Inativa";
+        return "Inactiva";
       case "PROGRAMADA":
         return "Programada";
       case "EM_ANDAMENTO":
-        return "Em Andamento";
+        return "En curso";
       case "CANCELADA":
         return "Cancelada";
       case "FINALIZADA":
@@ -168,7 +168,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<GroupIcon fontSize="inherit" />}
-              title="Contatos Válidos"
+              title="Contactos Válidos"
               value={validContacts}
               loading={loading}
             />
@@ -196,7 +196,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<CheckCircleIcon fontSize="inherit" />}
-              title="Entregues"
+              title="Entregas"
               value={delivered}
               loading={loading}
             />
@@ -205,7 +205,7 @@ const CampaignReport = () => {
             <Grid xs={12} md={4} item>
               <CardCounter
                 icon={<WhatsAppIcon fontSize="inherit" />}
-                title="Conexão"
+                title="Conexión"
                 value={campaign.whatsapp.name}
                 loading={loading}
               />
@@ -215,7 +215,7 @@ const CampaignReport = () => {
             <Grid xs={12} md={4} item>
               <CardCounter
                 icon={<ListAltIcon fontSize="inherit" />}
-                title="Lista de Contatos"
+                title="Lista de Contactos"
                 value={campaign.contactList.name}
                 loading={loading}
               />
@@ -224,7 +224,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<ScheduleIcon fontSize="inherit" />}
-              title="Agendamento"
+              title="Agendamiento"
               value={datetimeToClient(campaign.scheduledAt)}
               loading={loading}
             />
@@ -232,7 +232,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<EventAvailableIcon fontSize="inherit" />}
-              title="Conclusão"
+              title="Conclusión"
               value={datetimeToClient(campaign.completedAt)}
               loading={loading}
             />

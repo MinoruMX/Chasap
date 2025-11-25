@@ -25,9 +25,9 @@ export default function UsersDropdown({ users, setUser, value }) {
           variant="outlined"
           value={value ? value : ''}
           onChange={handleChange}
-          label="Atendente"
+          label="Agente"
         >
-          <MenuItem value={null}>Nenhum Atendente</MenuItem>
+          <MenuItem value={null}>Ningun Agente</MenuItem>
           {users.map((user, index) => (
             <MenuItem key={index} value={user.id}>
               {user.name}

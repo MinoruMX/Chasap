@@ -117,12 +117,12 @@ export default function ChatList({
   return (
     <>
       <ConfirmationModal
-        title={"Borrar Conversa"}
+        title={"Borrar Conversac."}
         open={confirmationModal}
         onClose={setConfirmModalOpen}
         onConfirm={handleDelete}
       >
-        Esta ação não pode ser revertida, confirmar?
+        Esta Acción no puede ser revertida, confirmar?
       </ConfirmationModal>
       <div className={classes.mainContainer}>
         <div className={classes.chatList}>

@@ -138,7 +138,7 @@ const SignUp = () => {
 										variant="outlined"
 										fullWidth
 										id="name"
-										label="Nome da Empresa"
+										label="Nombre de la Empresa"
 									/>
 								</Grid>
 
@@ -197,19 +197,19 @@ const SignUp = () => {
 									/>
 								</Grid>
 								<Grid item xs={12}>
-									<InputLabel htmlFor="plan-selection">Plano</InputLabel>
+									<InputLabel htmlFor="plan-selection">Plan</InputLabel>
 									<Field
 										as={Select}
 										variant="outlined"
 										fullWidth
 										id="plan-selection"
-										label="Plano"
+										label="Plan"
 										name="planId"
 										required
 									>
 										{plans.map((plan, key) => (
 											<MenuItem key={key} value={plan.id}>
-												{plan.name} - Atendentes: {plan.users} - WhatsApp: {plan.connections} - Filas: {plan.queues} - R$ {plan.value}
+												{plan.name} - Usuarios: {plan.users} - WhatsApp: {plan.connections} - Filas: {plan.queues} - Gs. {plan.value}
 											</MenuItem>
 										))}
 									</Field>

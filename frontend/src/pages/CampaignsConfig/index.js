@@ -167,17 +167,17 @@ const CampaignsConfig = () => {
                 fullWidth
               >
                 <InputLabel id="longerIntervalAfter-label">
-                  Intervalo Maior Após
+                  Intervalo Mayor Después de
                 </InputLabel>
                 <Select
                   name="longerIntervalAfter"
                   id="longerIntervalAfter"
                   labelId="longerIntervalAfter-label"
-                  label="Intervalo Maior Após"
+                  label="Intervalo Mayor Después de"
                   value={settings.longerIntervalAfter}
                   onChange={(e) => handleOnChangeSettings(e)}
                 >
-                  <MenuItem value={0}>Não definido</MenuItem>
+                  <MenuItem value={0}>No definido</MenuItem>
                   <MenuItem value={1}>1 segundo</MenuItem>
                   <MenuItem value={5}>5 segundos</MenuItem>
                   <MenuItem value={10}>10 segundos</MenuItem>
@@ -199,17 +199,17 @@ const CampaignsConfig = () => {
                 fullWidth
               >
                 <InputLabel id="greaterInterval-label">
-                  Intervalo de Disparo Maior
+                  Intervalo Mayor de Disparo
                 </InputLabel>
                 <Select
                   name="greaterInterval"
                   id="greaterInterval"
                   labelId="greaterInterval-label"
-                  label="Intervalo de Disparo Maior"
+                  label="Intervalo Mayor de Disparo"
                   value={settings.greaterInterval}
                   onChange={(e) => handleOnChangeSettings(e)}
                 >
-                  <MenuItem value={0}>Sem Intervalo</MenuItem>
+                  <MenuItem value={0}>Sin Intervalo</MenuItem>
                   <MenuItem value={1}>1 segundo</MenuItem>
                   <MenuItem value={5}>5 segundos</MenuItem>
                   <MenuItem value={10}>10 segundos</MenuItem>
@@ -230,7 +230,7 @@ const CampaignsConfig = () => {
                 color="primary"
                 style={{ marginRight: 10 }}
               >
-                Adicionar Variável
+                Agregar Variable
               </Button>
               <Button
                 onClick={saveSettings}
@@ -275,7 +275,7 @@ const CampaignsConfig = () => {
                     color="primary"
                     variant="contained"
                   >
-                    Adicionar
+                    Agregar
                   </Button>
                 </Grid>
               </>
@@ -286,8 +286,8 @@ const CampaignsConfig = () => {
                   <TableHead>
                     <TableRow>
                       <TableCell style={{ width: "1%" }}></TableCell>
-                      <TableCell>Atalho</TableCell>
-                      <TableCell>Conteúdo</TableCell>
+                      <TableCell>Atajo</TableCell>
+                      <TableCell>Contenido</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>

@@ -19,7 +19,8 @@ import moment from "moment";
 import { SocketContext } from "../../context/Socket/SocketContext";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import "moment/locale/pt-br";
+// import "moment/locale/pt-br";
+import "moment/locale/es";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
@@ -169,24 +170,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const defaultMessages = {
-  date: "Data",
+  date: "Fecha",
   time: "Hora",
   event: "Evento",
-  allDay: "Dia Todo",
+  allDay: "Todo el día",
   week: "Semana",
   work_week: "Agendamentos",
-  day: "Dia",
-  month: "Mês",
+  day: "Día",
+  month: "Mes",
   previous: "Anterior",
   next: "Próximo",
-  yesterday: "Ontem",
-  tomorrow: "Amanhã",
-  today: "Hoje",
+  yesterday: "Ayer",
+  tomorrow: "Mañana",
+  today: "Hoy",
   agenda: "Agenda",
-  noEventsInRange: "Não há agendamentos no período.",
-  showMore: (total) => `+${total} mais`,
+  noEventsInRange: "No hay agendamientos en el período.",
+  showMore: (total) => `+${total} más`,
 };
-
+moment.locale('es');
 const localizer = momentLocalizer(moment);
 
 const schedulesReducer = (state, action) => {
@@ -451,7 +452,7 @@ const Schedules = () => {
               endAccessor="end"
               defaultView="month"
               views={["month", "week", "day", "agenda"]}
-              culture="pt-BR"
+                culture="es-ES"
               style={{ height: "100%" }}
             />
           </div>

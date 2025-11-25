@@ -575,11 +575,11 @@ const MessagesList = ({ ticket, ticketId, isGroup }) => {
         return (
           <center>
             <div className={classes.ticketNunberClosed}>
-              Conversa encerrada: {format(parseISO(messagesList[index - 1].createdAt), "dd/MM/yyyy HH:mm:ss")}
+              Conversac. finalizada: {format(parseISO(messagesList[index - 1].createdAt), "dd/MM/yyyy HH:mm:ss")}
             </div>
 
             <div className={classes.ticketNunberOpen}>
-              Conversa iniciada: {format(parseISO(message.createdAt), "dd/MM/yyyy HH:mm:ss")}
+              Conversac. iniciada: {format(parseISO(message.createdAt), "dd/MM/yyyy HH:mm:ss")}
             </div>
           </center>
         );
@@ -900,7 +900,7 @@ const MessagesList = ({ ticket, ticketId, isGroup }) => {
       });
       return viewMessagesList;
     } else {
-      return <div>Diga olá para seu novo contato!</div>;
+      return <div>Salude a su nuevo contacto!</div>;
     }
   };
 

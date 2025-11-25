@@ -283,11 +283,11 @@ const TicketsDurationDetailReports = () => {
           >
             <TableHead>
               <TableRow>
-                <TableCell align="center"> Início do atendimento </TableCell>
-                <TableCell align="center"> Última atualização </TableCell>
+                <TableCell align="center"> Inicio de soporte </TableCell>
+                <TableCell align="center"> Última actualización </TableCell>
                 <TableCell align="center"> Status </TableCell>
-                <TableCell align="center"> Último atendente </TableCell>
-                <TableCell align="center"> Duração após finalizado </TableCell>
+                <TableCell align="center"> Último soporte </TableCell>
+                <TableCell align="center"> Tiempo después de finalizado </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

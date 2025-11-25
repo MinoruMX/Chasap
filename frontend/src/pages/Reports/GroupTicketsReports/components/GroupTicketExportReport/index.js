@@ -99,7 +99,7 @@ const GroupTicketExportReport = ({ tickets, formatDate }) => {
           padding: 5 
         }}>
           <Text style={{ width: '4%', ...classes.headerText }}>Ticket</Text>
-          <Text style={{ width: '14%', ...classes.headerText }}>Contato</Text>
+          <Text style={{ width: '14%', ...classes.headerText }}>Contacto</Text>
           <Text style={{ width: '14%', ...classes.headerText }}>WhatsApp</Text>
           <Text style={{ width: '15%', ...classes.headerText }}>
             Data Abertura

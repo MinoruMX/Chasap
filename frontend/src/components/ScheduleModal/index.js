@@ -79,9 +79,9 @@ const useStyles = makeStyles(theme => ({
 const ScheduleSchema = Yup.object().shape({
 	body: Yup.string()
 		.min(5, "Mensaje muy corto")
-		.required("Obrigatório"),
-	contactId: Yup.number().required("Obrigatório"),
-	sendAt: Yup.string().required("Obrigatório")
+		.required("Obligatorio"),
+	contactId: Yup.number().required("Obligatorio"),
+	sendAt: Yup.string().required("Obligatorio")
 });
 
 const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, reload }) => {
@@ -221,7 +221,7 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 		//console.log(queueId);
 
 		if (selectedQueue === "" && (user.profile !== 'admin' || user.profile !== 'supervisor')) {
-			//toast.error("Selecione uma fila!");
+			//toast.error("Selecione una fila!");
 			//return;
 		}
 
@@ -329,7 +329,7 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 											getOptionSelected={(option, value) => {
 												return value.id === option.id
 											}}
-											renderInput={(params) => <TextField {...params} variant="outlined" placeholder="Contato" />}
+											renderInput={(params) => <TextField {...params} variant="outlined" placeholder="Contacto" />}
 										/>
 									</FormControl>
 								</div>
@@ -356,12 +356,12 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 									{values.geral === true &&(
 										<FormControl variant="outlined" margin="dense" fullWidth>
 											<InputLabel id="atribuirUser-selection-label">
-												{i18n.t("Atribuir a mim?")}
+												{i18n.t("Atribuir a mi?")}
 											</InputLabel>
 											<Field
 												as={Select}
-												label={i18n.t("Atribuir a mim?")}
-												placeholder={i18n.t("Atribuir a mim?")}
+												label={i18n.t("Atribuir a mi?")}
+												placeholder={i18n.t("Atribuir a mi?")}
 												labelId="atribuirUser-selection-label"
 												id="atribuirUser"
 												name="atribuirUser"
@@ -471,7 +471,7 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 													{index + 1} dia{index + 1 !== 1 && "s"}
 												</MenuItem>
 											))}
-											<MenuItem value="9999999">Todo dia</MenuItem>
+											<MenuItem value="9999999">Todo el dia</MenuItem>
 										</Select>
 									</FormControl>
 								</div>

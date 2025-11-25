@@ -192,7 +192,7 @@ const Prompts = () => {
       {/* Box vermelha com o aviso */}
       <Paper className={classes.redBox} variant="outlined">
           <Typography variant="body1">
-            <strong>Aviso importante:</strong> Para todos los usuarios de Whaticket que han notado una interrupción en el funcionamiento de OpenAI, nos gustaría aclarar que esto no es un error del sistema. OpenAI <strong>dejó de ofrecer crédito gratuito</strong> de $5 USD para nuevos registros, deberás recargar tu cuenta para continuar utilizando el servicio. Es importante tener en cuenta esta política para garantizar una experiencia fluida e ininterrumpida al utilizar OpenAI con Whaticket. Si notas que el servicio ha dejado de funcionar, verifica si tu crédito gratuito ha expirado y considera recargar tu cuenta si es necesario.
+          <strong>Aviso importante:</strong> Para todos los usuarios que han notado una interrupción en el funcionamiento de OpenAI, nos gustaría aclarar que esto no es un error del sistema. OpenAI <strong>dejó de ofrecer crédito gratuito</strong> de $5 USD para nuevos registros, deberás recargar tu cuenta para continuar utilizando el servicio. Es importante tener en cuenta esta política para garantizar una experiencia fluida e ininterrumpida al utilizar OpenAI con esta aplicación. Si notas que el servicio ha dejado de funcionar, verifica si tu crédito gratuito ha expirado y considera recargar tu cuenta si es necesario.
           </Typography>
            {/* Links úteis */}
         <Typography variant="body1">

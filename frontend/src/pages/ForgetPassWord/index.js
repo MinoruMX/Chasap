@@ -135,7 +135,7 @@ const handleSendEmail = async (values) => {
           `${process.env.REACT_APP_BACKEND_URL}/resetpasswords/${email}/${token}/${newPassword}`
         );
         setError(""); // Limpe o erro se não houver erro
-        toast.success(i18n.t("Contraseña redefinida con éxito."));
+        toast.success(i18n.t("Contraseña cambiada con éxito."));
         history.push("/login");
       } catch (err) {
         console.log(err);
@@ -148,17 +148,17 @@ const handleSendEmail = async (values) => {
     email: Yup.string().email("Invalid email").required("Required"),
     newPassword: isResetPasswordButtonClicked
       ? Yup.string()
-          .required("Campo obrigatório")
+        .required("Campo requerido")
           .matches(
             passwordRegex,
-            "Sua senha precisa ter no mínimo 8 caracteres, sendo uma letra maiúscula, uma minúscula e um número."
+            "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una minúscula y un número."
           )
       : Yup.string(), // Sem validação se não for redefinição de senha
     confirmPassword: Yup.string().when("newPassword", {
       is: (newPassword) => isResetPasswordButtonClicked && newPassword,
       then: Yup.string()
-        .oneOf([Yup.ref("newPassword"), null], "As senhas não correspondem")
-        .required("Campo obrigatório"),
+        .oneOf([Yup.ref("newPassword"), null], "Las contraseñas no coinciden")
+        .required("Campo obligatorio"), 
       otherwise: Yup.string(), // Sem validação se não for redefinição de senha
     }),
   });
@@ -176,7 +176,7 @@ const handleSendEmail = async (values) => {
             />
           </div>
           <Typography component="h1" variant="h5">
-            {i18n.t("Redefinir senha")}
+            {i18n.t("Reestablecer contraseña")}
           </Typography>
           <Formik
             initialValues={{
@@ -224,7 +224,7 @@ const handleSendEmail = async (values) => {
                           variant="outlined"
                           fullWidth
                           id="token"
-                          label="Código de Verificação"
+                          label="Código de Verificación"
                           name="token"
                           error={touched.token && Boolean(errors.token)}
                           helperText={touched.token && errors.token}
@@ -274,7 +274,7 @@ const handleSendEmail = async (values) => {
                           fullWidth
                           type={showConfirmPassword ? "text" : "password"}
                           id="confirmPassword"
-                          label="Confirme a senha"
+                          label="Confirme la contraseña"
                           name="confirmPassword"
                           error={
                             touched.confirmPassword &&
@@ -314,7 +314,7 @@ const handleSendEmail = async (values) => {
                     color="primary"
                     className={classes.submit}
                   >
-                    Redefinir Senha
+                    Cambiar Clave
                   </Button>
                 ) : (
                   <Button
@@ -327,7 +327,7 @@ const handleSendEmail = async (values) => {
                     Enviar Email
                   </Button>
                 )}
-                <Grid container justifyContent="flex-end">
+                {/* <Grid container justifyContent="flex-end">
                   <Grid item>
                     <Link
                       href="#"
@@ -335,10 +335,10 @@ const handleSendEmail = async (values) => {
                       component={RouterLink}
                       to="/signup"
                     >
-                      {i18n.t("Não tem uma conta? Cadastre-se!")}
+                      {i18n.t("No tiene una cuenta? Registrese!")}
                     </Link>
                   </Grid>
-                </Grid>
+                </Grid> */}
                 {error && (
                   <Typography variant="body2" color="error">
                     {error}

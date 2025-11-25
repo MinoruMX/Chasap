@@ -361,7 +361,7 @@ const whatsappData = {
                       fullWidth
                       type="number"
                       as={TextField}
-                      label='Transferir após x (minutos)'
+                        label='Transferir luego de x (minutos)'
                       name="timeToTransfer"
                       error={touched.timeToTransfer && Boolean(errors.timeToTransfer)}
                       helperText={touched.timeToTransfer && errors.timeToTransfer}

@@ -171,7 +171,7 @@ const Dashboard = () => {
     }
 
     if (Object.keys(params).length === 0) {
-      toast.error("Parametrize o filtro");
+      toast.error("Por favor, configure el filtro");
       setLoading(false);
       return;
     }
@@ -238,13 +238,13 @@ const Dashboard = () => {
               onChange={(e) => handleChangePeriod(e.target.value)}
               label="Período"
             >
-              <MenuItem value={0}>Nenhum selecionado</MenuItem>
-              <MenuItem value={3}>Últimos 3 dias</MenuItem>
-              <MenuItem value={7}>Últimos 7 dias</MenuItem>
-              <MenuItem value={15}>Últimos 15 dias</MenuItem>
-              <MenuItem value={30}>Últimos 30 dias</MenuItem>
-              <MenuItem value={60}>Últimos 60 dias</MenuItem>
-              <MenuItem value={90}>Últimos 90 dias</MenuItem>
+              <MenuItem value={0}>Ninguno seleccionado</MenuItem>
+              <MenuItem value={3}>Últimos 3 días</MenuItem>
+              <MenuItem value={7}>Últimos 7 días</MenuItem>
+              <MenuItem value={15}>Últimos 15 días</MenuItem>
+              <MenuItem value={30}>Últimos 30 días</MenuItem>
+              <MenuItem value={60}>Últimos 60 días</MenuItem>
+              <MenuItem value={90}>Últimos 90 días</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -301,7 +301,7 @@ const Dashboard = () => {
               <div className={classes.cardContent}>
                 <div className={classes.cardText}>
                   <Typography variant="subtitle2" className={classes.cardTitle}>
-                    En Conversa
+                    En Conversac.
                   </Typography>
                   <Typography variant="h4" className={classes.cardValue}>
                     {counters.supportHappening || 0}
@@ -352,7 +352,7 @@ const Dashboard = () => {
               <div className={classes.cardContent}>
                 <div className={classes.cardText}>
                   <Typography variant="subtitle2" className={classes.cardTitle}>
-                    T.M. de Conversa
+                    T.M. de Conversac.
                   </Typography>
                   <Typography variant="h4" className={classes.cardValue}>
                     {formatTime(counters.avgSupportTime || 0)}

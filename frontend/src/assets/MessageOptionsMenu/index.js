@@ -138,7 +138,7 @@ const MessageOptionsMenu = ({ message, menuOpen, handleClose, anchorEl }) => {
 			const match = audioUrl.match(/\/([^\/]+\.ogg)$/);
 			const extractedPart = match ? match[1] : null;
 			if (!extractedPart) {
-				throw new Error('Formato de URL de áudio inesperado');
+				throw new Error('Formato de URL de audio inesperado');
 			}
 			const response = await api.get(`/messages/transcribeAudio/${extractedPart}`);
 			const { data } = response;
@@ -152,7 +152,7 @@ const MessageOptionsMenu = ({ message, menuOpen, handleClose, anchorEl }) => {
 				throw new Error('Dados de transcrição inválidos');
 			}
 		} catch (err) {
-			toastError(err.message || 'Erro desconhecido');
+			toastError(err.message || 'Error desconocido');
 		}
 	};
 

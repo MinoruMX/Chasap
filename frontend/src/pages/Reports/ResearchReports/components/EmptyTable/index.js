@@ -18,8 +18,7 @@ export default function EmptyTable() {
       }}
     >
       <Typography variant="h3" component="div">
-        Não há relatórios de pesquisa para serem exibidos no período
-        selecionado.
+        No existen registros para el periodo seleccionado.
       </Typography>
       <StyledClearIcon />
     </Box>

@@ -11,8 +11,8 @@ const VersionLog = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [error, setError] = useState(null);
-  
-    // trava para nao acessar pagina que não pode  
+
+  // trava para nao acessar pagina que não pode  
   useEffect(() => {
     async function fetchData() {
       if (!user.super) {
@@ -74,7 +74,7 @@ const VersionLog = () => {
 
     // Aqui você pode adicionar mais formatação para o Markdown
     return cleanText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Para negrito
-                    .replace(/\*([^\*]+)\*/g, '<em>$1</em>'); // Para itálico
+      .replace(/\*([^\*]+)\*/g, '<em>$1</em>'); // Para itálico
   };
 
   if (loading) return <p>Cargando...</p>;
@@ -99,7 +99,7 @@ const VersionLog = () => {
             fontSize: '16px',
           }}>{version}</h3>
           <ul style={{
-            paddingLeft: '0', 
+            paddingLeft: '0',
             listStyleType: 'none', // Remove o ponto antes dos ícones
             color: '#555',
           }}>

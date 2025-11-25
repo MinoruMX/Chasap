@@ -103,34 +103,34 @@ const SettingsCustom = () => {
   }, []);
 
   const handleTabChange = (event, newValue) => {
-      async function findData() {
-        setLoading(true);
-        try {
-          const companyId = localStorage.getItem("companyId");
-          const company = await find(companyId);
-          const settingList = await getAllSettings();
-          setCompany(company);
-          setSchedules(company.schedules);
-          setSettings(settingList);
-  
-          if (Array.isArray(settingList)) {
-            const scheduleType = settingList.find(
-              (d) => d.key === "scheduleType"
-            );
-            if (scheduleType) {
-              setSchedulesEnabled(scheduleType.value === "company");
-            }
+    async function findData() {
+      setLoading(true);
+      try {
+        const companyId = localStorage.getItem("companyId");
+        const company = await find(companyId);
+        const settingList = await getAllSettings();
+        setCompany(company);
+        setSchedules(company.schedules);
+        setSettings(settingList);
+
+        if (Array.isArray(settingList)) {
+          const scheduleType = settingList.find(
+            (d) => d.key === "scheduleType"
+          );
+          if (scheduleType) {
+            setSchedulesEnabled(scheduleType.value === "company");
           }
-  
-          const user = await getCurrentUserInfo();
-          setCurrentUser(user);
-        } catch (e) {
-          toast.error(e);
         }
-        setLoading(false);
+
+        const user = await getCurrentUserInfo();
+        setCurrentUser(user);
+      } catch (e) {
+        toast.error(e);
       }
-      findData();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setLoading(false);
+    }
+    findData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 
     setTab(newValue);
   };
@@ -167,13 +167,14 @@ const SettingsCustom = () => {
           className={classes.tab}
         >
           <Tab label="Opciones" value={"options"} />
-          {schedulesEnabled && <Tab label="Horários" value={"schedules"} />}
-		  {isSuper() ? <Tab label="Logo" value={"uploader"} /> : null}
+          {schedulesEnabled && <Tab label="Horarios" value={"schedules"} />}
+          {isSuper() ? <Tab label="Logo" value={"uploader"} /> : null}
           {isSuper() ? <Tab label="Empresas" value={"companies"} /> : null}
-		  {isSuper() ? <Tab label="Cadastrar Empresa" value={"newcompanie"} /> : null}
-          {isSuper() ? <Tab label="Planos" value={"plans"} /> : null}
-          {isSuper() ? <Tab label="Ajuda" value={"helps"} /> : null}
+          {isSuper() ? <Tab label="Registrar Empresa" value={"newcompanie"} /> : null}
+          {isSuper() ? <Tab label="Planes" value={"plans"} /> : null}
+          {isSuper() ? <Tab label="Ayuda" value={"helps"} /> : null}
         </Tabs>
+        {/* {!isSuper() && console.log("isSuper is false")} */}
         <Paper className={classes.paper} elevation={0}>
           <TabPanel
             className={classes.container}
@@ -234,7 +235,7 @@ const SettingsCustom = () => {
               </TabPanel>
             )}
           />
-		 <OnlyForSuperUser
+          <OnlyForSuperUser
             user={currentUser}
             yes={() => (
               <TabPanel

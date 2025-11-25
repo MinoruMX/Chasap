@@ -372,11 +372,11 @@ const MainListItems = (props) => {
                   />
                 </>
               )}
-              <ListItemLink
+              {/* <ListItemLink
                 to="/helps"
                 primary={i18n.t("mainDrawer.listItems.helps")}
                 icon={<TbHelpSquareRounded style={{ height: "25px", width: "25px", color: "#0073b7"}} />}
-              />
+              /> */}
             </>
           </>
         )}
@@ -494,7 +494,7 @@ const MainListItems = (props) => {
                       <ListItemIcon>
                         <PeopleIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Listas de Contatos" />
+                      <ListItemText primary="Listas de Contactos" />
                     </ListItem>
 
                     <ListItem
@@ -583,11 +583,11 @@ const MainListItems = (props) => {
                 />
               </>
             )}
-{/*             <ListItemLink
+            <ListItemLink
               to="/financeiro"
               primary={i18n.t("mainDrawer.listItems.financeiro")}
               icon={<LocalAtmIcon />}
-            /> */}
+            />
 
             <ListItemLink
               to="/settings"

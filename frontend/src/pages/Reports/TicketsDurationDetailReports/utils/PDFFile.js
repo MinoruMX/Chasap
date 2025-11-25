@@ -83,7 +83,7 @@ const ExportReport = ({ tickets, name }) => {
         </View>
 
         <View style={classes.titleContainer}>
-          <Text style={classes.title}>Relação de Atendimentos Realizados - {name} </Text>
+          <Text style={classes.title}>Relación de soportes realizados - {name} </Text>
         </View>
 
         <View style={{
@@ -102,7 +102,7 @@ const ExportReport = ({ tickets, name }) => {
             Último atendente
           </Text>
           <Text style={{ width: '20%', ...classes.headerText }}>
-            Duração após finalizado
+            Tiempo después de finalizado
           </Text>
         </View>
 

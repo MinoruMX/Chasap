@@ -214,7 +214,7 @@ const LoggedInLayout = ({ children }) => {
 
     socket.on(`company-${companyId}-auth`, (data) => {
       if (data.user.id === +userId) {
-        toastError("Sua conta foi acessada em outro computador.");
+        toastError("Ya tienes una Sesión abierta en otro lugar");
         setTimeout(() => {
           localStorage.clear();
           window.location.reload();
@@ -295,7 +295,7 @@ const LoggedInLayout = ({ children }) => {
         open={drawerOpen}
       >
         <div className={classes.toolbarIcon}>
-          <img src={`${logoImg}?r=${Math.random()}`} style={{ margin: "0 auto" , width: "50%"}} alt={`${process.env.REACT_APP_NAME_SYSTEM}`} />
+          <img src={`${logoImg}?r=${Math.random()}`} style={{ margin: "0 auto", width: "50%" }} alt={`${process.env.REACT_APP_NAME_SYSTEM}`} />
           <IconButton onClick={() => setDrawerOpen(!drawerOpen)}>
             <ChevronLeftIcon />
           </IconButton>
@@ -338,13 +338,13 @@ const LoggedInLayout = ({ children }) => {
             className={classes.title}
           >
             {greaterThenSm && user?.profile === "admin" && user?.company?.dueDate ? (
-            <>
-              Bienvenido a <b>{user?.company?.name}</b> --  (Vigencia hasta: {dateToClient(user?.company?.dueDate)})
-            </>
-          ) : (
-            <>
-              Hola  <b>{user.name}</b>, Bienvenido a <b>{user?.company?.name}</b>!
-            </>
+              <>
+                Bienvenido a <b>{user?.company?.name}</b> - Usuario: <b>{user.name}</b> - Perfil: <b>{user?.profile}</b>  (Vigencia hasta: {dateToClient(user?.company?.dueDate)})
+              </>
+            ) : (
+              <>
+                Hola  <b>{user.name}</b>, Bienvenido a <b>{user?.company?.name}</b>!
+              </>
             )}
           </Typography>
 
@@ -397,18 +397,18 @@ const LoggedInLayout = ({ children }) => {
               <MenuItem onClick={handleOpenUserModal}>
                 {i18n.t("mainDrawer.appBar.user.profile")}
               </MenuItem>
-              <MenuItem onClick={toggleColorMode}>
+              {/* <MenuItem onClick={toggleColorMode}>
                 {theme.mode === 'dark' ? (
                   <>
                     <Brightness7Icon style={{ marginRight: 8 }} /> Modo Claro
                   </>
                 ) : (
                   <>
-                    <Brightness4Icon style={{ marginRight: 8 }} /> Modo Escuro
+                      <Brightness4Icon style={{ marginRight: 8 }} /> Modo Oscuro
                   </>
                 )}
-              </MenuItem>
-              <UserLanguageSelector iconOnly={true} />
+              </MenuItem> */}
+              {/* <UserLanguageSelector iconOnly={true} /> */}
             </Menu>
           </div>
         </Toolbar>

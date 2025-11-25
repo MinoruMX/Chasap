@@ -82,12 +82,12 @@ export function ChatModal({
   const handleSave = async () => {
     try {
       if (!title) {
-        alert("Por favor, preencha o título da conversa.");
+        alert("Por favor, agregue un título a la conversac.");
         return;
       }
 
       if (!users || users.length === 0) {
-        alert("Por favor, selecione pelo menos um usuário.");
+        alert("Por favor, seleccione al menos un agente.");
         return;
       }
 
@@ -114,7 +114,7 @@ export function ChatModal({
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">Conversa</DialogTitle>
+      <DialogTitle id="alert-dialog-title">Conversac.</DialogTitle>
       <DialogContent>
         <Grid spacing={2} container>
           <Grid xs={12} style={{ padding: 18 }} item>
@@ -389,7 +389,7 @@ function Chat(props) {
             aria-label="disabled tabs example"
           >
             <Tab label="Chats" />
-            <Tab label="Mensagens" />
+            <Tab label="Mensajes" />
           </Tabs>
         </Grid>
         {tab === 0 && (

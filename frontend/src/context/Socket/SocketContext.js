@@ -45,7 +45,7 @@ class ManagedSocket {
   emit(event, ...params) {
     if (event.startsWith("join")) {
       this.joins.push({ event: event.substring(4), params });
-      console.log("Joining", { event: event.substring(4), params});
+      //console.log("Joining", { event: event.substring(4), params});
     }
     return this.rawSocket.emit(event, ...params);
   }

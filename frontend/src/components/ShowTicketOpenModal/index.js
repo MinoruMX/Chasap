@@ -43,15 +43,15 @@ const ShowTicketOpenModal = ({ isOpen, handleClose, ticketData, user, queue }) =
       </DialogTitle>
       <DialogContent className={classes.content}>
         <Typography paragraph>
-          Este contato já possui um ticket em atendimento com:
+          Este contacto ya tiene un ticket en atención con:
         </Typography>
         <Typography paragraph>
-          <span className={classes.textBold}>Atendente: </span>
-          {ticketData?.user?.name || user || "Não atribuído"}
+          <span className={classes.textBold}>Usuario: </span>
+          {ticketData?.user?.name || user || "No asignado"}
         </Typography>
         <Typography paragraph>
           <span className={classes.textBold}>Fila: </span>
-          {ticketData?.queue?.name || queue || "Não atribuído"}
+          {ticketData?.queue?.name || queue || "No asignado"}
         </Typography>
       </DialogContent>
       <DialogActions>
@@ -68,7 +68,7 @@ const ShowTicketOpenModal = ({ isOpen, handleClose, ticketData, user, queue }) =
             color="primary"
             variant="contained"
           >
-            Ir para o Ticket
+            Ir al Ticket
           </Button>
         )}
       </DialogActions>

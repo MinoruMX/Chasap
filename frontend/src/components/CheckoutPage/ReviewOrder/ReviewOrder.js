@@ -9,7 +9,7 @@ export default function ReviewOrder() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Resumo da assinatura
+        Resumen de la orden
       </Typography>
       <Grid container spacing={2}>
         <ShippingDetails formValues={formValues} />

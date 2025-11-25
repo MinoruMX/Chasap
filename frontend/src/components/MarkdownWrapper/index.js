@@ -217,7 +217,7 @@ const MarkdownWrapper = ({ children, message }) => {
 			<div style={vcardStyle}>
 				<Avatar style={avatar} src={message.contact.profilePicUrl} alt="contact_image" />
 				<div style={infoStyle}>
-					<p style={p}><strong>Nome:</strong> {contact}</p>
+					<p style={p}><strong>Nombre:</strong> {contact}</p>
 					<p style={p}><strong>Número:</strong> {number}</p>
 				</div>
 			</div>

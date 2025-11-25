@@ -63,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
-    background: theme.palette.type === 'light' 
-      ? '#f8fafc' 
+    background: theme.palette.type === 'light'
+      ? '#f8fafc'
       : '#0f172a',
   },
   container: {
@@ -104,8 +104,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     borderRadius: 16,
     background: theme.palette.background.paper,
-    border: theme.palette.type === 'light' 
-      ? '1px solid #e2e8f0' 
+    border: theme.palette.type === 'light'
+      ? '1px solid #e2e8f0'
       : '1px solid #1e293b',
     boxShadow: theme.palette.type === 'light'
       ? '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)'
@@ -187,8 +187,8 @@ const useStyles = makeStyles((theme) => ({
   },
   pricingCardHeader: {
     padding: theme.spacing(3),
-    background: theme.palette.type === 'light' 
-      ? '#f1f5f9' 
+    background: theme.palette.type === 'light'
+      ? '#f1f5f9'
       : '#1e293b',
     position: 'relative',
   },
@@ -309,19 +309,19 @@ const useStyles = makeStyles((theme) => ({
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Nome muito curto!")
-    .max(50, "Nome muito longo!")
-    .required("Obrigatório"),
+    .min(2, "Nombre muy corto!")
+    .max(50, "Nombre muy largo!")
+    .required("Obligatorio"),
   password: Yup.string()
-    .min(5, "Senha muito curta! Mínimo 5 caracteres")
-    .max(50, "Senha muito longa!")
-    .required("Obrigatório"),
+    .min(5, "Contraseña muy corta! Mínimo 5 caracteres")
+    .max(50, "Contraseña muy larga!")
+    .required("Obligatorio"),
   email: Yup.string()
     .email("Email inválido")
-    .required("Obrigatório"),
+    .required("Obligatorio"),
   phone: Yup.string()
-    .min(15, "Telefone incompleto")
-    .required("Obrigatório"),
+    .min(10, "Telefono incompleto")
+    .required("Obligatorio"),
 });
 
 const SignUp = () => {
@@ -333,10 +333,10 @@ const SignUp = () => {
   const [trial, settrial] = useState('3');
   const [activeStep, setActiveStep] = useState(0);
   const [selectedPlan, setSelectedPlan] = useState(null);
-  
+
   const logoLight = `${process.env.REACT_APP_BACKEND_URL}/public/logotipos/interno.png`;
   const logoDark = `${process.env.REACT_APP_BACKEND_URL}/public/logotipos/logo_w.png`;
-  
+
   let companyId = null;
 
   useEffect(() => {
@@ -364,8 +364,8 @@ const SignUp = () => {
     }
   };
 
-  if(allowregister === "disabled"){
-    history.push("/login");    
+  if (allowregister === "disabled") {
+    history.push("/login");
   }
 
   const params = qs.parse(window.location.search);
@@ -373,10 +373,10 @@ const SignUp = () => {
     companyId = params.companyId;
   }
 
-  const initialState = { 
-    name: "", 
-    email: "", 
-    phone: "", 
+  const initialState = {
+    name: "",
+    email: "",
+    phone: "",
     password: "",
     planId: selectedPlan?.id || ""
   };
@@ -384,20 +384,20 @@ const SignUp = () => {
   const dueDate = moment().add(trial, "day").format();
 
   const handleSignUp = async values => {
-    Object.assign(values, { 
-      recurrence: "MENSAL",
+    Object.assign(values, {
+      recurrence: "MENSUAL",
       dueDate: dueDate,
       status: "t",
       campaignsEnabled: true,
       planId: selectedPlan.id
     });
-    
+
     try {
       await openApi.post("/companies/cadastro", values);
       toast.success(i18n.t("signup.toasts.success"));
       history.push("/login");
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       toastError(err);
     }
   };
@@ -426,32 +426,31 @@ const SignUp = () => {
     handleNext();
   };
 
-  const steps = ['Selecione seu plano', 'Crie sua conta'];
+  const steps = ['Elija su plan mensual', 'Cree su cuenta'];
 
   // Identificar o plano mais popular (com maior valor)
-  const popularPlan = plans.length > 0 
-    ? plans.reduce((prev, current) => 
-        (prev.value > current.value) ? prev : current)
+  const popularPlan = plans.length > 0
+    ? plans.reduce((prev, current) =>
+      (prev.value > current.value) ? prev : current)
     : null;
 
   return (
     <div className={classes.root}>
       <Container maxWidth="lg" className={classes.container}>
         <div className={classes.logoContainer}>
-          <img 
-            src={theme.palette.type === 'light' ? logoLight : logoDark} 
-            className={classes.logo} 
-            alt={`${process.env.REACT_APP_NAME_SYSTEM}`} 
+          <img
+            src={theme.palette.type === 'light' ? logoLight : logoDark}
+            className={classes.logo}
+            alt={`${process.env.REACT_APP_NAME_SYSTEM}`}
           />
         </div>
 
         <div className={classes.hero}>
           <Typography variant="h3" className={classes.heroTitle} gutterBottom>
-            Transforme sua comunicação com nosso sistema
+            Optimice su Atención al Cliente con nuestro CRM - Gratis x {trial} Días!
           </Typography>
           <Typography variant="h6" className={classes.heroSubtitle}>
-            Experimente gratuitamente por {trial} dias todas as funcionalidades 
-            da nossa plataforma. Sem necessidade de cartão de crédito.
+            Pruebe gratuitamente por {trial} días todas las funcionalidades y obtenga acceso a nuestras herramientas de atención al cliente. Sin necesidad de tarjeta de crédito.
           </Typography>
         </div>
 
@@ -459,7 +458,7 @@ const SignUp = () => {
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label, index) => (
               <Step key={label}>
-                <StepLabel 
+                <StepLabel
                   StepIconProps={{
                     style: {
                       color: activeStep === index ? theme.palette.primary.main : theme.palette.text.disabled
@@ -479,10 +478,9 @@ const SignUp = () => {
                 <Grid container spacing={3} justifyContent="center">
                   {plans.map((plan) => (
                     <Grid item xs={12} sm={6} md={4} key={plan.id}>
-                      <Card 
-                        className={`${classes.pricingCard} ${
-                          selectedPlan?.id === plan.id ? classes.pricingCardSelected : ''
-                        }`}
+                      <Card
+                        className={`${classes.pricingCard} ${selectedPlan?.id === plan.id ? classes.pricingCardSelected : ''
+                          }`}
                         onClick={() => handlePlanSelect(plan)}
                       >
                         {popularPlan?.id === plan.id && (
@@ -501,40 +499,40 @@ const SignUp = () => {
                         />
                         <CardContent>
                           <div className={classes.pricingCardPrice}>
-                            <Typography 
-                              component="h2" 
-                              variant="h3" 
+                            <Typography
+                              component="h2"
+                              variant="h3"
                               className={classes.pricingCardPriceAmount}
                             >
-                              R$ {plan.value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                              Gs. {plan.value.toLocaleString('es-PY', { minimumFractionDigits: 2 })}
                             </Typography>
                             <Typography variant="body1" color="textSecondary">
-                              /mês
+                              /mes
                             </Typography>
                           </div>
                           <div className={classes.pricingCardFeatures}>
                             <div className={classes.pricingCardFeature}>
                               <CheckCircle className={classes.featureIcon} />
                               <Typography variant="body2">
-                                <strong>{plan.connections}</strong> Conexões WhatsApp
+                                <strong>{plan.connections}</strong> Conexiones WhatsApp
                               </Typography>
                             </div>
                             <div className={classes.pricingCardFeature}>
                               <CheckCircle className={classes.featureIcon} />
                               <Typography variant="body2">
-                                <strong>{plan.users}</strong> Usuários
+                                <strong>{plan.users}</strong> Usuarios
                               </Typography>
                             </div>
                             <div className={classes.pricingCardFeature}>
                               <CheckCircle className={classes.featureIcon} />
                               <Typography variant="body2">
-                                Suporte <strong>prioritário</strong>
+                                Soporte <strong>prioritario</strong>
                               </Typography>
                             </div>
                             <div className={classes.pricingCardFeature}>
                               <CheckCircle className={classes.featureIcon} />
                               <Typography variant="body2">
-                                <strong>{trial} dias</strong> grátis
+                                <strong>{trial} dias</strong> gratis
                               </Typography>
                             </div>
                           </div>
@@ -554,7 +552,7 @@ const SignUp = () => {
                               fontSize: '1rem',
                             }}
                           >
-                            {selectedPlan?.id === plan.id ? 'Selecionado' : 'Selecionar'}
+                            {selectedPlan?.id === plan.id ? 'Seleccionado' : 'Seleccionar'}
                           </Button>
                         </CardActions>
                       </Card>
@@ -571,16 +569,16 @@ const SignUp = () => {
                     className={classes.backButton}
                     style={{ textTransform: 'none' }}
                   >
-                    Voltar para planos
+                    Regrese para ver los planes
                   </Button>
 
                   {selectedPlan && (
                     <div className={classes.planSummary}>
                       <Typography variant="body1">
-                        Plano selecionado: <span className={classes.planName}>{selectedPlan.name}</span>
+                        Plan seleccionado: <span className={classes.planName}>{selectedPlan.name}</span>
                       </Typography>
                       <Typography variant="body1" fontWeight="600">
-                        R$ {selectedPlan.value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}/mês
+                        Gs. {selectedPlan.value.toLocaleString('es-PY', { minimumFractionDigits: 2 })} /mes
                       </Typography>
                     </div>
                   )}
@@ -589,7 +587,7 @@ const SignUp = () => {
                     <LockOutlined style={{ fontSize: 30 }} />
                   </Avatar>
                   <Typography component="h1" variant="h5" className={classes.title}>
-                    Cadastre sua empresa
+                    Registre su negocio
                   </Typography>
 
                   <Formik
@@ -616,8 +614,8 @@ const SignUp = () => {
                               variant="outlined"
                               fullWidth
                               id="name"
-                              label="Nome da Empresa"
-                              placeholder="Digite o nome da sua empresa"
+                              label="Nombre del Negocio"
+                              placeholder="Nombre de su negocio"
                               className={classes.inputField}
                               InputProps={{
                                 startAdornment: (
@@ -638,7 +636,7 @@ const SignUp = () => {
                               error={touched.email && Boolean(errors.email)}
                               helperText={touched.email && errors.email}
                               autoComplete="email"
-                              placeholder="seu@email.com"
+                              placeholder="correo@empresa.com"
                               required
                               className={classes.inputField}
                               InputProps={{
@@ -648,25 +646,25 @@ const SignUp = () => {
                               }}
                             />
                           </Grid>
-                          
+
                           <Grid item xs={12}>
                             <Field name="phone">
-                              {({ field, form }) => (
+                              {({ field, form: { touched, errors, setFieldValue } }) => (
                                 <InputMask
-                                  mask="(99) 99999-9999"
+                                  mask="(9999) 999-999"
                                   value={field.value}
-                                  onChange={field.onChange}
+                                  onChange={e => setFieldValue(field.name, e.target.value)}
                                   onBlur={field.onBlur}
+                                  placeholder="(0000) 000-000"
                                 >
                                   {() => (
                                     <TextField
                                       variant="outlined"
                                       fullWidth
                                       id="phone"
-                                      label="Telefone"
+                                      label="Celular"
                                       error={touched.phone && Boolean(errors.phone)}
                                       helperText={touched.phone && errors.phone}
-                                      placeholder="(00) 00000-0000"
                                       required
                                       className={classes.inputField}
                                       InputProps={{
@@ -680,7 +678,7 @@ const SignUp = () => {
                               )}
                             </Field>
                           </Grid>
-                          
+
                           <Grid item xs={12}>
                             <Field
                               as={TextField}
@@ -689,10 +687,10 @@ const SignUp = () => {
                               name="password"
                               error={touched.password && Boolean(errors.password)}
                               helperText={touched.password && errors.password}
-                              label="Senha"
+                              label="Contraseña"
                               type="password"
                               id="password"
-                              placeholder="Mínimo 5 caracteres"
+                              placeholder="Mínimo 8 caracteres"
                               autoComplete="new-password"
                               required
                               className={classes.inputField}
@@ -704,7 +702,7 @@ const SignUp = () => {
                             />
                           </Grid>
                         </Grid>
-                        
+
                         <Button
                           type="submit"
                           fullWidth
@@ -714,9 +712,9 @@ const SignUp = () => {
                           disabled={isSubmitting}
                           size="large"
                         >
-                          {isSubmitting ? 'Criando conta...' : `Iniciar teste de ${trial} dias`}
+                          {isSubmitting ? 'Creando cuenta...' : `Iniciar prueba de ${trial} días`}
                         </Button>
-                        
+
                         {/*<Typography variant="body2" color="textSecondary" align="center" style={{ marginTop: 16 }}>
                           Ao se registrar, você concorda com nossos{' '}
                           <Link href="#" color="primary" fontWeight="600">Termos de Serviço</Link> e{' '}
@@ -725,14 +723,14 @@ const SignUp = () => {
 
                         <Box mt={3} textAlign="center">
                           <Typography variant="body2">
-                            Já tem uma conta?{' '}
-                            <Link 
-                              component={RouterLink} 
-                              to="/login" 
-                              color="primary" 
+                            ¿Ya tiene una cuenta?{' '}
+                            <Link
+                              component={RouterLink}
+                              to="/login"
+                              color="primary"
                               style={{ fontWeight: '600' }}
                             >
-                              Faça login aqui
+                              Inicie sesión aquí
                             </Link>
                           </Typography>
                         </Box>
@@ -745,7 +743,7 @@ const SignUp = () => {
           </div>
         </div>
       </Container>
-      
+
       <Box mt={4} mb={4}>
         <Copyright />
       </Box>

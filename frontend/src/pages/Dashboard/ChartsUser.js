@@ -51,7 +51,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Gráfico de Conversas",
+      text: "Gráfico de Conversac.",
       position: "left",
     },
     datalabels: {
@@ -122,7 +122,7 @@ export const ChatsUser = () => {
   return (
     <>
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
-        Total de Conversas por Usuarios
+        Total de Conversac. por Usuarios
       </Typography>
 
       <Stack direction={"row"} spacing={2} alignItems={"center"} sx={{ my: 2 }}>

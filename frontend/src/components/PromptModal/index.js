@@ -58,33 +58,33 @@ const useStyles = makeStyles(theme => ({
 
 const PromptSchema = Yup.object().shape({
     name: Yup.string()
-      .min(5, "¡Muy corto!")
-      .max(100, "¡Muy largo!")
-      .required("Obligatorio"),
-      
+        .min(5, "¡Muy corto!")
+        .max(100, "¡Muy largo!")
+        .required("Obligatorio"),
+
     prompt: Yup.string()
-      .min(50, "¡Muy corto!")
-      .required("Describe el entrenamiento para la Inteligencia Artificial"),
-  
+        .min(50, "¡Muy corto!")
+        .required("Describe el entrenamiento para la Inteligencia Artificial"),
+
     voice: Yup.string()
-      .required("Indica el modo de Voz"),
-  
+        .required("Indica el modo de Voz"),
+
     max_tokens: Yup.number()
-      .required("Indica el número máximo de tokens"),
-  
+        .required("Indica el número máximo de tokens"),
+
     temperature: Yup.number()
-      .required("Indica la temperatura"),
-  
+        .required("Indica la temperatura"),
+
     apikey: Yup.string()
-      .required("Indica la clave API"),
-  
+        .required("Indica la clave API"),
+
     queueId: Yup.number()
-      .required("Indica la cola"),
-  
+        .required("Indica la cola"),
+
     max_messages: Yup.number()
-      .required("Indica el número máximo de mensajes")
-  });
-  
+        .required("Indica el número máximo de mensajes")
+});
+
 
 const PromptModal = ({ open, onClose, promptId }) => {
     const classes = useStyles();
@@ -143,7 +143,7 @@ const PromptModal = ({ open, onClose, promptId }) => {
     const handleSavePrompt = async values => {
         const promptData = { ...values, voice: selectedVoice };
         if (!values.queueId) {
-            toastError("Informe o setor");
+            toastError("Indica la cola/sector/departamento");
             return;
         }
         try {
@@ -233,7 +233,7 @@ const PromptModal = ({ open, onClose, promptId }) => {
                                 <QueueSelectSingle />
                                 <div className={classes.multFieldLine}>
                                     <FormControl fullWidth margin="dense" variant="outlined">
-                                    <InputLabel>{i18n.t("promptModal.form.voice")}</InputLabel>
+                                        <InputLabel>{i18n.t("promptModal.form.voice")}</InputLabel>
                                         <Select
                                             id="type-select"
                                             labelWidth={60}
@@ -313,7 +313,7 @@ const PromptModal = ({ open, onClose, promptId }) => {
                                         fullWidth
                                     />
                                 </div>
-                                
+
                                 <div className={classes.multFieldLine}>
                                     <Field
                                         as={TextField}

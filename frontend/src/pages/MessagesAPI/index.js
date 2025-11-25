@@ -232,7 +232,7 @@ const MessagesAPI = () => {
       variant="outlined"
     >
       <Typography variant="h5">
-        Documentación para envío de mensajes
+        Documentación para envío de mensajes via Whatsapp con la API REST
       </Typography>
       <Typography variant="h6" color="primary" className={classes.elementMargin}>
         Métodos de Envío
@@ -240,7 +240,7 @@ const MessagesAPI = () => {
       <Typography component="div">
         <ol>
           <li>Mensajes de Texto</li>
-          <li>Mensajes de Media</li>
+          <li>Mensajes Multimedia</li>
         </ol>
       </Typography>
       <Typography variant="h6" color="primary" className={classes.elementMargin}>
@@ -251,7 +251,7 @@ const MessagesAPI = () => {
         <ul>
           <li>Antes de enviar mensajes, es necesario registrar el token vinculado a la conexión. <br />Para registrar, acceda al menú "Conexiones", edite la conexión e inserte el token en el campo correspondiente.</li>
           <li>
-            El número de destino no debe contener máscara ni caracteres especiales y debe ser compuesto por:
+            El número de destino no debe contener máscara ni caracteres especiales y debe ser compuesto por(Ejemplo: 595981222222):
             <ul>
               <li>Código del país</li>
               <li>DDD</li>

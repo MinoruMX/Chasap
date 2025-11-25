@@ -373,7 +373,7 @@ export function PlansManagerGrid(props) {
     };
 
     const renderInternal = (row) => {
-        return row.useInternal === false ? "Sim" : "Não";
+        return row.useInternal === false ? `${i18n.t("plans.form.no")}` : `${i18n.t("plans.form.yes")}`;
     };
 
     return (
@@ -391,7 +391,7 @@ export function PlansManagerGrid(props) {
                         <TableCell align="center">{i18n.t("plans.form.users")}</TableCell>
                         <TableCell align="center">{i18n.t("plans.form.connections")}</TableCell>
                         <TableCell align="center">Filas</TableCell>
-                        <TableCell align="center">Valor</TableCell>
+                        <TableCell align="center">Costo</TableCell>
                         <TableCell align="center">{i18n.t("plans.form.campaigns")}</TableCell>
                         <TableCell align="center">{i18n.t("plans.form.schedules")}</TableCell>
                         <TableCell align="center">Chat Interno</TableCell>
@@ -414,7 +414,7 @@ export function PlansManagerGrid(props) {
                             <TableCell align="center">{row.users || '-'}</TableCell>
                             <TableCell align="center">{row.connections || '-'}</TableCell>
                             <TableCell align="center">{row.queues || '-'}</TableCell>
-                            <TableCell align="center">{i18n.t("plans.form.money")} {row.value ? row.value.toLocaleString('pt-br', { minimumFractionDigits: 2 }) : '00.00'}</TableCell>
+                            <TableCell align="center">{i18n.t("plans.form.money")} {row.value ? row.value.toLocaleString('es-ES', { minimumFractionDigits: 2 }) : '00.00'}</TableCell>
                             <TableCell align="center">{renderCampaigns(row)}</TableCell>
                             <TableCell align="center">{renderSchedules(row)}</TableCell>
                             <TableCell align="center">{renderInternalChat(row)}</TableCell>
@@ -576,12 +576,12 @@ export default function PlansManager() {
                 </Grid>
             </Grid>
             <ConfirmationModal
-                title="Exclusão de Registro"
+                title="Borrar registro"
                 open={showConfirmDialog}
                 onClose={() => setShowConfirmDialog(false)}
                 onConfirm={() => handleDelete()}
             >
-                Deseja realmente excluir esse registro?
+                ¿Estás seguro de que deseas eliminar este registro?
             </ConfirmationModal>
         </Paper>
     )

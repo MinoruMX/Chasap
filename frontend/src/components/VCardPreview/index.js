@@ -54,7 +54,7 @@ const VCardPreview = ({ contact, numbers }) => {
                     boxShadow: theme.shadows[10],
                 }}>
                     <Typography variant="h6" style={{ marginBottom: "20px", color: theme.palette.text.primary }}>
-                        Selecione a Fila
+                        Selecione la Fila
                     </Typography>
                     <Divider style={{ marginBottom: "20px" }} />
                     {user.queues.map((queue) => (
@@ -217,7 +217,7 @@ const VCardPreview = ({ contact, numbers }) => {
                                     }} 
                                 />
                                 <Typography variant="body2" style={{ color: theme.palette.text.secondary }}>
-                                    <strong>Nome:</strong> {selectedContact.name}
+                                    <strong>Nombre:</strong> {selectedContact.name}
                                 </Typography>
                             </Box>
                             <Box display="flex" alignItems="center">
@@ -229,7 +229,7 @@ const VCardPreview = ({ contact, numbers }) => {
                                     }} 
                                 />
                                 <Typography variant="body2" style={{ color: theme.palette.text.secondary }}>
-                                    <strong>Telefone:</strong> {selectedContact.number}
+                                    <strong>Telefono:</strong> {selectedContact.number}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -261,7 +261,7 @@ const VCardPreview = ({ contact, numbers }) => {
                                 ),
                             }}
                         >
-                            {isContactValid ? "Iniciar conversa" : "Contato inválido"}
+                            {isContactValid ? "Iniciar conversación" : "Número de teléfono inválido"}
                         </Button>
                     </Box>
                 </Box>

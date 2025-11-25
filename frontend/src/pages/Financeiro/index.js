@@ -149,7 +149,7 @@ const Invoices = () => {
     const hoje = moment(moment()).format("DD/MM/yyyy");
     const vencimento = moment(record.dueDate).format("DD/MM/yyyy");
     var diff = moment(vencimento, "DD/MM/yyyy").diff(moment(hoje, "DD/MM/yyyy"));
-    var dias = moment.duration(diff).asDays();    
+    var dias = moment.duration(diff).asDays();
     if (dias < 0 && record.status !== "paid") {
       return { backgroundColor: "#ffbcbc9c" };
     }
@@ -159,15 +159,15 @@ const Invoices = () => {
     const hoje = moment(moment()).format("DD/MM/yyyy");
     const vencimento = moment(record.dueDate).format("DD/MM/yyyy");
     var diff = moment(vencimento, "DD/MM/yyyy").diff(moment(hoje, "DD/MM/yyyy"));
-    var dias = moment.duration(diff).asDays();    
+    var dias = moment.duration(diff).asDays();
     const status = record.status;
     if (status === "paid") {
-      return "Pago";
+      return "Pagado";
     }
     if (dias < 0) {
       return "Vencido";
     } else {
-      return "Abierto"
+      return "Activo"
     }
 
   }
@@ -194,7 +194,7 @@ const Invoices = () => {
           <TableHead>
             <TableRow>
               <TableCell align="center">Id</TableCell>
-              <TableCell align="center">Detalles</TableCell>
+              <TableCell align="center">Plan</TableCell>
               <TableCell align="center">Valor</TableCell>
               <TableCell align="center">Fecha Venc.</TableCell>
               <TableCell align="center">Status</TableCell>
@@ -207,11 +207,11 @@ const Invoices = () => {
                 <TableRow style={rowStyle(invoices)} key={invoices.id}>
                   <TableCell align="center">{invoices.id}</TableCell>
                   <TableCell align="center">{invoices.detail}</TableCell>
-                  <TableCell style={{ fontWeight: 'bold' }} align="center">{invoices.value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</TableCell>
+                  <TableCell style={{ fontWeight: 'bold' }} align="center">{invoices.value.toLocaleString('es-PY', { style: 'currency', currency: 'PYG' })}</TableCell>
                   <TableCell align="center">{moment(invoices.dueDate).format("DD/MM/YYYY")}</TableCell>
                   <TableCell style={{ fontWeight: 'bold' }} align="center">{rowStatus(invoices)}</TableCell>
                   <TableCell align="center">
-                    {rowStatus(invoices) !== "Pago" ?
+                    {rowStatus(invoices) == "VencidoNOMOSTRAR" ?
                       <Button
                         size="small"
                         variant="outlined"
@@ -222,11 +222,11 @@ const Invoices = () => {
                       </Button> :
                       <Button
                         size="small"
-                        variant="outlined" 
+                        variant="outlined"
                         /* color="secondary"
                         disabled */
                       >
-                        PAGO 
+                        Contacte al proveedor para mas detalles
                       </Button>}
 
                   </TableCell>

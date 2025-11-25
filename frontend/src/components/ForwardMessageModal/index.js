@@ -105,7 +105,7 @@ const ForwardMessageModal = ({ messages, onClose, modalOpen }) => {
 		if (optionL.number) {
 			return `${optionL.name} - ${optionL.number}`;
 		} else {
-			return `Nenhum contato encontrado com o nome ${optionL.name}`;
+			return `No se encontró ningún contacto con el nombre ${optionL.name}`;
 		}
 	};
 

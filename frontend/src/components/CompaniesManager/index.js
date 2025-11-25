@@ -306,7 +306,7 @@ export function CompanyForm(props) {
                   </InputLabel>
                   <Field
                     as={Select}
-                    label="Recorrência"
+                    label="Recurrencia"
                     labelId="recorrencia-selection-label"
                     id="recurrence"
                     name="recurrence"

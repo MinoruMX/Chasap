@@ -314,7 +314,7 @@ const NewTicketModal = ({ modalOpen, onClose, initialContact }) => {
                 }}
                 renderValue={() => {
                   if (selectedQueue === "") {
-                    return "Selecione uma fila"
+                    return "Seleccione una fila"
                   }
                   const queue = user.queues.find(q => q.id === selectedQueue)
                   return queue.name
@@ -419,19 +419,19 @@ const NewTicketModal = ({ modalOpen, onClose, initialContact }) => {
         </DialogTitle>
         <DialogContent style={{ padding: '16px' }}>
           <Typography paragraph>
-            Já existe um ticket em atendimento para este contato.
+            Ya existe un ticket en atención para este contacto.
           </Typography>
           <Typography paragraph>
-            <span style={{ fontWeight: 'bold' }}>Atendente: </span>
-            {existingTicket?.user?.name || "Não atribuído"}
+            <span style={{ fontWeight: 'bold' }}>Usuario: </span>
+            {existingTicket?.user?.name || "No asignado"}
           </Typography>
           <Typography paragraph>
             <span style={{ fontWeight: 'bold' }}>Fila: </span>
-            {existingTicket?.queue?.name || "Não atribuído"}
+            {existingTicket?.queue?.name || "No asignado"}
           </Typography>
           <Typography paragraph>
             <span style={{ fontWeight: 'bold' }}>Status: </span>
-            {existingTicket?.status || "Desconhecido"}
+            {existingTicket?.status || "Desconocido"} 
           </Typography>
         </DialogContent>
         <DialogActions>
@@ -447,7 +447,7 @@ const NewTicketModal = ({ modalOpen, onClose, initialContact }) => {
             color="primary"
             variant="contained"
           >
-            Ir para o Ticket
+            Ir al Ticket
           </Button>
         </DialogActions>
       </Dialog>

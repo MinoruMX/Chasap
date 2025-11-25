@@ -39,7 +39,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Gráfico de Conversas',
+            text: 'Gráfico de Conversac.',
             position: 'left',
         },
         datalabels: {

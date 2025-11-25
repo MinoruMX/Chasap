@@ -83,7 +83,7 @@ const PDFFile = ({ tickets }) => {
         </View>
 
         <View style={classes.titleContainer}>
-          <Text style={classes.title}>Relação de Atendimentos Realizados </Text>
+          <Text style={classes.title}>Relación de soportes realizados </Text>
         </View>
 
         <View style={{
@@ -95,14 +95,14 @@ const PDFFile = ({ tickets }) => {
           alignItems: 'center',
           padding: 5,
         }}>
-          <Text style={{ width: '30%', ...classes.headerText }}>Contato</Text>
-          <Text style={{ width: '15%', ...classes.headerText }}>Abertos</Text>
-          <Text style={{ width: '15%', ...classes.headerText }}>Pendentes</Text>
+          <Text style={{ width: '30%', ...classes.headerText }}>Contacto</Text>
+          <Text style={{ width: '15%', ...classes.headerText }}>Abiertos</Text>
+          <Text style={{ width: '15%', ...classes.headerText }}>Pendientes</Text>
           <Text style={{ width: '15%', ...classes.headerText }}>
             Finalizados
           </Text>
           <Text style={{ width: '25%', ...classes.headerText }}>
-            Duração após finalizado
+            Tiempo después de finalizado
           </Text>
         </View>
 

@@ -181,7 +181,7 @@ export function QueueOptionStepper({ queueId, options, updateOptions }) {
             onChange={(event) => handleOptionChangeTitle(event, index)}
             size="small"
             className={classes.input}
-            placeholder="Título da opção"
+            placeholder="Título de la opción"
           />
                     <div style={{ display: "none" }}>
             <input
@@ -245,7 +245,7 @@ export function QueueOptionStepper({ queueId, options, updateOptions }) {
     return (
       <>
         <Typography>
-          {option.title !== "" ? option.title : "Título não definido"}
+          {option.title !== "" ? option.title : "Título no definido"}
           <IconButton
             variant="outlined"
             size="small"
@@ -271,7 +271,7 @@ export function QueueOptionStepper({ queueId, options, updateOptions }) {
             onChange={(event) => handleOptionChangeMessage(event, index)}
             size="small"
             className={classes.input}
-            placeholder="Digite o texto da opção"
+            placeholder="Ingrese el texto de la opción"
           />
         </>
       );
@@ -318,7 +318,7 @@ export function QueueOptionStepper({ queueId, options, updateOptions }) {
                 variant="outlined"
                 className={classes.addButton}
               >
-                Adicionar
+                Agregar
               </Button>
             </>
           )}

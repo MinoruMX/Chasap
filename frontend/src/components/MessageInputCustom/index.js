@@ -339,12 +339,12 @@ const FileInput = (props) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const locationUrl = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`;
-        props.setInputMessage(prev => `${prev}\nMinha localização: ${locationUrl}`);
+        props.setInputMessage(prev => `${prev}\nMi ubicación : ${locationUrl}`);
       }, (error) => {
-        toastError("Erro ao obter localização: " + error.message);
+        toastError("Error al obtener la ubicación: " + error.message);
       });
     } else {
-      toastError("Geolocalização não suportada pelo navegador");
+      toastError("Geolocalización no soportada por el navegador");  
     }
   };
 
@@ -366,7 +366,7 @@ const FileInput = (props) => {
               <ListItemIcon>
                 <ImageIcon fontSize="small" className={classes.imageIcon} />
               </ListItemIcon>
-              <ListItemText primary="Imagem" />
+              <ListItemText primary="Imagen" />
             </MenuItem>
             <MenuItem onClick={() => handleOptionClick('document')}>
               <ListItemIcon>
@@ -384,13 +384,13 @@ const FileInput = (props) => {
               <ListItemIcon>
                 <LocationOnIcon fontSize="small" className={classes.locationIcon} />
               </ListItemIcon>
-              <ListItemText primary="Localização" />
+              <ListItemText primary="Ubicación" />
             </MenuItem>
             <MenuItem onClick={() => handleOptionClick('audio')}>
               <ListItemIcon>
                 <MicIcon fontSize="small" className={classes.audioIcon} />
               </ListItemIcon>
-              <ListItemText primary="Áudio" />
+              <ListItemText primary="Audio" />
             </MenuItem>
           </Paper>
         )}
@@ -827,7 +827,7 @@ const MessageInputCustom = (props) => {
       const file = media;
       if (!file) { return; }
 
-      if (media?.type.split('/')[0] == 'image') {
+      if (media?.type.split('/')[0] === 'image') {
         new Compressor(file, {
           quality: 0.7,
           async success(media) {

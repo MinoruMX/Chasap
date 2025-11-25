@@ -250,11 +250,11 @@ const GroupTicketsReports = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center"> Ticket </TableCell>
-                <TableCell align="center"> Contato </TableCell>
+                <TableCell align="center"> Contacto </TableCell>
                 <TableCell align="center"> WhatsApp </TableCell>
-                <TableCell align="center"> Data Abertura </TableCell>
-                <TableCell align="center"> Data Última Atualização </TableCell>
-                <TableCell align="center"> Quem atendeu </TableCell>
+                <TableCell align="center"> Fecha Apertura </TableCell>
+                <TableCell align="center"> Fecha Última Atualización </TableCell>
+                <TableCell align="center"> Atendido por </TableCell>
                 <TableCell align="center"> Status </TableCell>
               </TableRow>
             </TableHead>

@@ -378,7 +378,7 @@ const QueueModal = ({ open, onClose, queueId }) => {
                           labelId="integrationId-selection-label"
                           value={values.integrationId || ""}
                         >
-                          <MenuItem value={""} >{"Nenhum"}</MenuItem>
+                          <MenuItem value={""} >{"Ninguno"}</MenuItem>
                           {integrations.map((integration) => (
                             <MenuItem key={integration.id} value={integration.id}>
                               {integration.name}

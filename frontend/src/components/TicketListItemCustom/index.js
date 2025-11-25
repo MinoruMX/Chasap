@@ -462,7 +462,7 @@ const TicketListItemCustom = ({ ticket }) => {
           secondary={
             <span className={classes.contactNameWrapper}>
           {profile === "admin" && (
-            <Tooltip title="Espiar Conversa">
+                <Tooltip title="Ver Conversac.">
               <VisibilityIcon
                 onClick={() => setOpenTicketMessageDialog(true)}
                 fontSize="small"
@@ -487,7 +487,7 @@ const TicketListItemCustom = ({ ticket }) => {
                   </span>
                 ) : (
                   <>
-                    {ticket.lastMessage.includes('data:image/png;base64') ? <MarkdownWrapper> Localização</MarkdownWrapper> : <MarkdownWrapper>{ticket.lastMessage}</MarkdownWrapper>}
+                      {ticket.lastMessage.includes('data:image/png;base64') ? <MarkdownWrapper> Ubicación</MarkdownWrapper> : <MarkdownWrapper>{ticket.lastMessage}</MarkdownWrapper>}
                   </>
                 )}
     

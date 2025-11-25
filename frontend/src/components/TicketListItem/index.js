@@ -227,7 +227,7 @@ const TicketListItem = ({ ticket }) => {
         />
         {ticket.lastMessage ? (
   ticket.lastMessage.includes("VCARD") ? (
-    <Typography>Novo contato recebido...</Typography>
+            <Typography>Nuevo contacto recibido...</Typography>
   ) : (
     <MarkdownWrapper>{ticket.lastMessage}</MarkdownWrapper>
   )
