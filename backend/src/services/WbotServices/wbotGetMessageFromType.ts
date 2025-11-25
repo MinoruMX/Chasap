@@ -17,7 +17,7 @@ export const getVideoMessage = (msg: proto.IWebMessageInfo) => {
 
 // Função para extrair informações de mensagens de áudio
 export const getAudioMessage = (msg: proto.IWebMessageInfo) => {
-  return "Áudio";
+  return "Audio";
 };
 
 // Função para extrair informações de mensagens de documento

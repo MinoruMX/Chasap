@@ -19,7 +19,7 @@ export const index = async (req: Request, res: Response): Promise<Response> => {
   const { companyId } = req.user;
 
   //if (req.user.profile !== "admin") {
-    //throw new AppError("ERR_NO_PERMISSION", 403);
+  //throw new AppError("ERR_NO_PERMISSION", 403);
   //}
 
   const settings = await ListSettingsService({ companyId });
@@ -62,7 +62,7 @@ export const show = async (
   //const { companyId } = req.user;
   const companyId = 1;
   const { settingKey } = req.params;
-  
+
 
   const retornoData = await ShowSettingsService({ settingKey, companyId });
 
@@ -81,7 +81,7 @@ export const mediaUpload = async (
   const requestUser = await User.findByPk(userId);
 
   if (requestUser.super === false) {
-    throw new AppError("você nao tem permissão para esta ação!");
+    throw new AppError("No tienes permisos para esta acción!");
   }
 
   if (req.user.profile !== "admin") {
@@ -95,7 +95,7 @@ export const mediaUpload = async (
   const files = req.files as Express.Multer.File[];
   const file = head(files);
   console.log("📂 ARCHIVO:", file);
-  return res.send({ mensagem: "Arquivo Anexado" });
+  return res.send({ mensagem: "Archivo Anexado" });
 };
 
 
@@ -110,7 +110,7 @@ export const certUpload = async (
   const requestUser = await User.findByPk(userId);
 
   if (requestUser.super === false) {
-    throw new AppError("você nao tem permissão para esta ação!");
+    throw new AppError("No tienes permisos para esta acción!");
   }
 
   if (req.user.profile !== "admin") {
@@ -140,7 +140,7 @@ export const docUpload = async (
   const requestUser = await User.findByPk(userId);
 
   if (requestUser.super === false) {
-    throw new AppError("você nao tem permissão para esta ação!");
+    throw new AppError("No tienes permisos para esta acción!");
   }
 
   if (req.user.profile !== "admin") {

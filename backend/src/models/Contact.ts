@@ -97,6 +97,16 @@ class Contact extends Model<Contact> {
 
   @BelongsTo(() => Whatsapp)
   whatsapp: Whatsapp;
+
+  @Column
+  remoteJid: string;
+
+  @Column
+  lid: string;
+
+  @Column
+  lgpdAcceptedAt: Date;
+
 }
 
 export default Contact;

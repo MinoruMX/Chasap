@@ -185,7 +185,7 @@ export const deleteMedia = async (
 
     // Verifique se a mensagem foi encontrada
     if (!quickmessage) {
-      throw new AppError("Arquivo não encontrado", 404);
+      throw new AppError("Archivo no encontrado", 404);
     }
 
     // Aplique a mesma lógica de renomeação para gerar o nome correto do arquivo

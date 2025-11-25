@@ -12,7 +12,7 @@ const ScheduleService = async (id: string | number, companyId: number): Promise<
   });
 
   if (schedule?.companyId !== companyId) {
-    throw new AppError("Não é possível excluir registro de outra empresa");
+    throw new AppError("No se puede eliminar un registro de otra empresa");
   }
 
   if (!schedule) {

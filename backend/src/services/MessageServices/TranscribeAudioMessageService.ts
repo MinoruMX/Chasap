@@ -41,8 +41,8 @@ const TranscribeAudioMessageToText = async (fileName: string, companyId: number)
   const filePath = `${publicFolder}/company${companyId}/${fileName}`;
   
   if (!fs.existsSync(filePath)) {
-    console.error(`Arquivo não encontrado: ${filePath}`);
-    return 'Arquivo não encontrado';
+    console.error(`Archivo no encontrado: ${filePath}`);
+    return 'Archivo no encontrado';
   }
 
   try { 
@@ -63,7 +63,7 @@ const TranscribeAudioMessageToText = async (fileName: string, companyId: number)
     return { transcribedText: response.data };
   } catch (error) {
     console.error(error);
-    return 'Conversão pra texto falhou';
+    return 'Transcripción de audio a texto fallida';
   }
 };
 

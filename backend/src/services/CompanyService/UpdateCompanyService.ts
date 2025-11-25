@@ -51,7 +51,7 @@ const UpdateCompanyService = async (
 const plan = await Plan.findByPk(planId);
 
 if (!plan) {
-  throw new Error("Plano Não Encontrado.");
+  throw new Error("Plan No Encontrado.");
 }
 
 
@@ -66,7 +66,7 @@ if (!plan) {
     });
   
   } else {
-    throw new Error("Nenhuma fatura em aberto para este cliente!");
+    throw new Error("Este cliente no cuenta con facturas abiertas!");
   }
 
   await company.update({

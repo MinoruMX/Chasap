@@ -8,7 +8,7 @@ const ShowQueueService = async (
   const queue = await Queue.findByPk(queueId);
 
   if (queue?.companyId !== companyId) {
-    throw new AppError("Não é possível consultar registros de outra empresa");
+    throw new AppError("No se puede consultar registros de otra empresa");
   }
 
   if (!queue) {

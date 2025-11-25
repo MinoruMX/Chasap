@@ -2,6 +2,8 @@ import { getIO } from "../../libs/socket";
 import Contact from "../../models/Contact";
 import ContactCustomField from "../../models/ContactCustomField";
 import { isNil } from "lodash";
+import { Op } from "sequelize";
+
 interface ExtraInfo extends ContactCustomField {
   name: string;
   value: string;
@@ -17,6 +19,9 @@ interface Request {
   extraInfo?: ExtraInfo[];
   whatsappId?: number;
   disableBot?: boolean;
+  remoteJid?: string;
+  lid?: string;
+  lgpdAcceptedAt?: Date;
 }
 
 const CreateOrUpdateContactService = async ({
@@ -28,7 +33,10 @@ const CreateOrUpdateContactService = async ({
   companyId,
   extraInfo = [],
   whatsappId,
-  disableBot = false
+  disableBot = false,
+  remoteJid,
+  lid,
+  lgpdAcceptedAt
 }: Request): Promise<Contact> => {
   const number = isGroup ? rawNumber : rawNumber.replace(/[^0-9]/g, "");
 
@@ -37,8 +45,10 @@ const CreateOrUpdateContactService = async ({
 
   contact = await Contact.findOne({
     where: {
-      number,
-      companyId
+      [Op.or]: [
+        { number, companyId },
+        ...(lid ? [{ lid, companyId }] : [])
+      ]
     }
   });
 
@@ -64,7 +74,10 @@ const CreateOrUpdateContactService = async ({
       extraInfo,
       companyId,
       whatsappId,
-      disableBot
+      disableBot,
+      remoteJid,
+      lid,
+      lgpdAcceptedAt
     });
 
     io.to(`company-${companyId}-mainchannel`).emit(`company-${companyId}-contact`, {

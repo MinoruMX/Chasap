@@ -8,7 +8,7 @@ const ResetPassword = async (
 ) => {
   const { hasResult, data } = await filterUser(email, token);
   if (!hasResult) {
-    return { status: 404, message: "Email não encontrado" };
+    return { status: 404, message: "Email no encontrado" };
   }
   if (hasResult === true) {
     try {
@@ -19,7 +19,7 @@ const ResetPassword = async (
         convertPassword
       );
       if (datas.length === 0) {
-        return { status: 404, message: "Token não encontrado" };
+        return { status: 404, message: "Token no encontrado" };
       }
     } catch (err) {
       console.log(err);

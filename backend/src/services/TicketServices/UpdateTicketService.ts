@@ -126,7 +126,7 @@ const UpdateTicketService = async ({
     if (ticketTraking.ratingAt == null && ticketTraking.userId !== null) {
       const bodyRatingMessage = `${
         ratingMessage ? ratingMessage + "\n\n" : ""
-      }Digite de 1 a 5 para qualificar nosso atendimento:\n\n*1* - 😞 _Péssimo_\n*2* - 😕 _Ruim_\n*3* - 😐 _Neutro_\n*4* - 🙂 _Bom_\n*5* - 😊 _Ótimo_`;
+        }Puntee de 1 a 5 para calificar mi Atención :\n\n*1* - 😞 _Péssimo_\n*2* - 😕 _Ruim_\n*3* - 😐 _Neutro_\n*4* - 🙂 _Bom_\n*5* - 😊 _Ótimo_`;
 
       await SendWhatsAppMessage({ body: bodyRatingMessage, ticket });
 

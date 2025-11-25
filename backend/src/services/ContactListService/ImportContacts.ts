@@ -70,7 +70,7 @@ export async function ImportContacts(
         newContact.number = number;
         await newContact.save();
       } catch (e) {
-        logger.error(`Número de contato inválido: ${newContact.number}`);
+        logger.error(`Número de contacto inválido: ${newContact.number}`);
       }
     }
   }
