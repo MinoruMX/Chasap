@@ -32,7 +32,7 @@ const UpdateService = async (data: Data): Promise<ContactListItem> => {
     record.number = number;
     await record.save();
   } catch (e) {
-    logger.error(`Número de contato inválido: ${record.number}`);
+    logger.error(`Número de contacto inválido: ${record.number}`);
   }
 
   return record;

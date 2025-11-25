@@ -58,7 +58,7 @@ const apiLimiter = rateLimit({
   max: 100,
   standardHeaders: true,
   legacyHeaders: false,
-  message: 'Muitas requisições deste IP, tente novamente após 15 minutos',
+  message: 'Demasiadas peticiones desde esta IP, por favor, inténtalo de nuevo después de 15 minutos',
   skip: (req) => {
     return req.ip === '127.0.0.1' || req.ip === '::1';
   }

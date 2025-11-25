@@ -11,7 +11,7 @@ const DeleteService = async (id: string): Promise<void> => {
   }
 
   if (record.status === "EM_ANDAMENTO") {
-    throw new AppError("Não é permitido excluir campanha em andamento", 400);
+    throw new AppError("No se puede eliminar una campaña en curso", 400);
   }
 
   await record.destroy();

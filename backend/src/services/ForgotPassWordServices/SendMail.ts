@@ -10,11 +10,11 @@ interface UserData {
 const SendMail = async (email: string, tokenSenha: string) => {
   const { hasResult, data } = await filterEmail(email);
   if (!hasResult) {
-    return { status: 404, message: "Email não encontrado" };
+    return { status: 404, message: "Email no encontrado" };
   }
   const userData = data[0][0] as UserData;
   if (!userData || userData.companyId === undefined) {
-    return { status: 404, message: "Dados do usuário não encontrados" };
+    return { status: 404, message: "Datos del usuario no encontrados" };
   }
   const companyId = userData.companyId;
   const urlSmtp = process.env.MAIL_HOST;
@@ -34,9 +34,9 @@ const SendMail = async (email: string, tokenSenha: string) => {
         const mailOptions = {
           from: fromEmail,
           to: email,
-          subject: "Redefinição de Senha - Whaticket SaaS",
+          subject: "Cambio de Clave - CRM-SaaSTech",
           html: ` <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html dir="ltr" lang="pt">
+<html dir="ltr" lang="es">
  <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -142,10 +142,10 @@ a[x-apple-data-detectors] {
                   <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#212121">Bem-vindo à Whaticket SaaS</h1></td>
+                      <td align="center" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#212121">Bienvenido a CRM - Saastech</h1></td>
                      </tr>
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#131313;font-size:16px">Você solicitou recuperação de senha do Whaticket!</p></td>
+                      <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#131313;font-size:16px">Solicitaste la recuperación de tu clave del CRM - Saastech!</p></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -181,7 +181,7 @@ a[x-apple-data-detectors] {
                       <td align="center" height="20" style="padding:0;Margin:0"></td>
                      </tr>
                      <tr>
-                      <td align="left" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#ffffff;text-align:center">Código de Verificação:</h1></td>
+                      <td align="left" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#ffffff;text-align:center">Código de Verificación:</h1></td>
                      </tr>
                      <tr>
                       <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#ffffff;font-size:16px">${tokenSenha}</p></td>
@@ -204,10 +204,10 @@ a[x-apple-data-detectors] {
                   <td align="center" valign="top" style="padding:0;Margin:0;width:281px">
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="left" style="padding:0;Margin:0"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#212121;text-align:center">Está com dúvidas?</h1></td>
+                      <td align="left" style="padding:0;Margin:0"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#212121;text-align:center">Alguna Duda?</h1></td>
                      </tr>
                      <tr>
-                      <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;padding-top:15px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#131313;font-size:16px">Entre em contato agora mesmo conosco.</p></td>
+                      <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;padding-top:15px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#131313;font-size:16px">Contacte con nosotros.</p></td>
                      </tr>
                    </table></td>
                  </tr>

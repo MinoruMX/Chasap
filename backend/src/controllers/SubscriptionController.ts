@@ -22,9 +22,9 @@ export const index = async (req: Request, res: Response): Promise<Response> => {
 export const createSubscription = async (
   req: Request,
   res: Response
-  ): Promise<Response> => {
-    const gerencianet = Gerencianet(options);
-    const { companyId } = req.user;
+): Promise<Response> => {
+  const gerencianet = Gerencianet(options);
+  const { companyId } = req.user;
 
   const schema = Yup.object().shape({
     price: Yup.string().required(),
@@ -49,18 +49,18 @@ export const createSubscription = async (
     plan,
     invoiceId
   } = req.body;
-  
+
 
   const body = {
     calendario: {
       expiracao: 3600
     },
     valor: {
-      original: price.toLocaleString("pt-br", { minimumFractionDigits: 2 }).replace(",", ".")
+      original: price.toLocaleString("es-es", { minimumFractionDigits: 2 }).replace(",", ".")
     },
     chave: process.env.GERENCIANET_PIX_KEY,
-    solicitacaoPagador: `#Fatura:${invoiceId}`
-    };
+    solicitacaoPagador: `#Factura:${invoiceId}`
+  };
   try {
     const pix = await gerencianet.pixCreateImmediateCharge(null, body);
 
@@ -75,22 +75,22 @@ export const createSubscription = async (
     }
 
 
-/*     await Subscriptions.create({
-      companyId,
-      isActive: false,
-      userPriceCents: users,
-      whatsPriceCents: connections,
-      lastInvoiceUrl: pix.location,
-      lastPlanChange: new Date(),
-      providerSubscriptionId: pix.loc.id,
-      expiresAt: new Date()
-    }); */
+    /*     await Subscriptions.create({
+          companyId,
+          isActive: false,
+          userPriceCents: users,
+          whatsPriceCents: connections,
+          lastInvoiceUrl: pix.location,
+          lastPlanChange: new Date(),
+          providerSubscriptionId: pix.loc.id,
+          expiresAt: new Date()
+        }); */
 
-/*     const { id } = req.user;
-    const userData = {};
-    const userId = id;
-    const requestUserId = parseInt(id);
-    const user = await UpdateUserService({ userData, userId, companyId, requestUserId }); */
+    /*     const { id } = req.user;
+        const userData = {};
+        const userId = id;
+        const requestUserId = parseInt(id);
+        const user = await UpdateUserService({ userData, userId, companyId, requestUserId }); */
 
     /*     const io = getIO();
         io.emit("user", {
@@ -144,7 +144,7 @@ export const createWebhook = async (
 export const webhook = async (
   req: Request,
   res: Response
-  ): Promise<Response> => {
+): Promise<Response> => {
   const { type } = req.params;
   const { evento } = req.body;
   if (evento === "teste_webhook") {
@@ -161,7 +161,7 @@ export const webhook = async (
         const { solicitacaoPagador } = detahe;
         const invoiceID = solicitacaoPagador.replace("#Fatura:", "");
         const invoices = await Invoices.findByPk(invoiceID);
-        const companyId =invoices.companyId;
+        const companyId = invoices.companyId;
         const company = await Company.findByPk(companyId);
 
         const expiresAt = new Date(company.dueDate);
@@ -172,7 +172,7 @@ export const webhook = async (
           await company.update({
             dueDate: date
           });
-         const invoi = await invoices.update({
+          const invoi = await invoices.update({
             id: invoiceID,
             status: 'paid'
           });

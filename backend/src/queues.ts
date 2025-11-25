@@ -87,7 +87,7 @@ async function handleSendMessage(job) {
     const whatsapp = await Whatsapp.findByPk(data.whatsappId);
 
     if (whatsapp == null) {
-      throw Error("Whatsapp não identificado");
+      throw Error("Whatsapp no identificado");
     }
 
     const messageData: MessageData = data.data;
