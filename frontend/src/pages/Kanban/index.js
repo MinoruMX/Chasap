@@ -80,6 +80,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const CustomLaneHeader = props => {
+  return (
+    <div className="react-trello-lane-header">
+      {props.titleComponent || props.title}
+    </div>
+  );
+};
+
 const Kanban = () => {
   const classes = useStyles();
   const { user } = useContext(AuthContext);
@@ -97,7 +105,7 @@ const Kanban = () => {
   const fetchTags = async () => {
     try {
       const response = await api.get("/tags/kanban");
-      const fetchedTags = response.data.lista || []; 
+      const fetchedTags = response.data.lista || [];
       setTags(fetchedTags);
     } catch (error) {
       console.log(error);
@@ -147,7 +155,7 @@ const Kanban = () => {
         await api.delete(`/ticket-tags/${selectedTicket.id}`);
         toast.success('Ticket archivado con éxito');
       }
-      
+
       fetchTickets();
       fetchTags();
     } catch (err) {
@@ -180,10 +188,11 @@ const Kanban = () => {
     const lanes = [
       {
         id: "0",
-        title: <LaneTitle firstLane quantity={laneQuantities["0"]}>Abiertos</LaneTitle>,
-        style: { 
+        title: "Abiertos",
+        titleComponent: <LaneTitle firstLane quantity={laneQuantities["0"]}>Abiertos</LaneTitle>,
+        style: {
           backgroundColor: "#f0f2f5",
-          borderTop: "4px solid #6c757d" 
+          borderTop: "4px solid #6c757d"
         },
         cards: tickets.filter(ticket => ticket.tags.length === 0).map(ticket => ({
           id: ticket.id.toString(),
@@ -207,8 +216,9 @@ const Kanban = () => {
       },
       ...tags.map(tag => ({
         id: tag.id.toString(),
-        title: <LaneTitle squareColor={tag.color} quantity={laneQuantities[tag.id.toString()]}>{tag.name}</LaneTitle>,
-        style: { 
+        title: tag.name,
+        titleComponent: <LaneTitle squareColor={tag.color} quantity={laneQuantities[tag.id.toString()]}>{tag.name}</LaneTitle>,
+        style: {
           backgroundColor: `${tag.color}10`,
           borderTop: `4px solid ${tag.color}`
         },
@@ -282,12 +292,13 @@ const Kanban = () => {
   return (
     <div className={classes.root}>
       <div className={classes.boardContainer}>
-        <Board 
-          data={file} 
-          onCardMoveAcrossLanes={(fromLaneId, toLaneId, cardId, index, card) => 
+        <Board
+          components={{ LaneHeader: CustomLaneHeader }}
+          data={file}
+          onCardMoveAcrossLanes={(fromLaneId, toLaneId, cardId, index, card) =>
             handleCardMove(fromLaneId, toLaneId, cardId, index, card)
           }
-          laneStyle={{ 
+          laneStyle={{
             maxHeight: "80vh",
             minWidth: "280px",
             width: "280px"

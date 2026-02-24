@@ -5,6 +5,7 @@ dist
 !public/.gitkeep
 .env
 .env.test
+build
 
 # package-lock.json
 yarn.lock

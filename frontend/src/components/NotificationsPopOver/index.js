@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom";
 import { format } from "date-fns";
 import { SocketContext } from "../../context/Socket/SocketContext";
 
-import useSound from "use-sound";
-
 import Popover from "@material-ui/core/Popover";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
@@ -59,12 +57,18 @@ const NotificationsPopOver = (volume) => {
 
 	const { tickets } = useTickets({ withUnreadMessages: "true" });
 
-	const [play] = useSound(alertSound, volume);
-	const soundAlertRef = useRef();
-
 	const historyRef = useRef(history);
 
-  const socketManager = useContext(SocketContext);
+	const socketManager = useContext(SocketContext);
+
+	const playSound = () => {
+		try {
+			const audio = new Audio(alertSound);
+			audio.play().catch(e => console.warn("No se pudo reproducir el sonido (posible bloqueo del navegador):", e));
+		} catch (e) {
+			console.warn("Error al intentar reproducir sonido:", e);
+		}
+	};
 
 	useEffect(() => {
 		const fetchSettings = async () => {
@@ -74,22 +78,20 @@ const NotificationsPopOver = (volume) => {
 					setShowPendingTickets(true);
 				}
 			} catch (err) {
-			  	toastError(err);
+				toastError(err);
 			}
 		}
-	  
+
 		fetchSettings();
 	}, []);
 
 	useEffect(() => {
-		soundAlertRef.current = play;
-
 		if (!("Notification" in window)) {
 			console.log("This browser doesn't support notifications");
 		} else {
 			Notification.requestPermission();
 		}
-	}, [play]);
+	}, []);
 
 	useEffect(() => {
 		const processNotifications = () => {
@@ -110,7 +112,7 @@ const NotificationsPopOver = (volume) => {
 	}, [ticketIdUrl]);
 
 	useEffect(() => {
-    const socket = socketManager.getSocket(user.companyId);
+		const socket = socketManager.getSocket(user.companyId);
 
 		socket.on("ready", () => socket.emit("joinNotification"));
 
@@ -141,8 +143,8 @@ const NotificationsPopOver = (volume) => {
 
 		socket.on(`company-${user.companyId}-appMessage`, data => {
 			if (
-				data.action === "create" && !data.message.fromMe && 
-				(data.ticket.status !== "pending" ) &&
+				data.action === "create" && !data.message.fromMe &&
+				(data.ticket.status !== "pending") &&
 				(!data.message.read || data.ticket.status === "pending") &&
 				(data.ticket.userId === user?.id || !data.ticket.userId) &&
 				(user?.queues?.some(queue => (queue.id === data.ticket.queueId)) || !data.ticket.queueId)
@@ -182,35 +184,35 @@ const NotificationsPopOver = (volume) => {
 			tag: ticket.id,
 			renotify: true,
 		};
-    try{
-		const notification = new Notification(
-			`${i18n.t("tickets.notification.message")} ${contact.name}`,
-			options
-		);
-
-		notification.onclick = e => {
-			e.preventDefault();
-			window.focus();
-			historyRef.current.push(`/tickets/${ticket.uuid}`);
-			// handleChangeTab(null, ticket.isGroup? "group" : "open");
-		};
-
-		setDesktopNotifications(prevState => {
-			const notfiticationIndex = prevState.findIndex(
-				n => n.tag === notification.tag
+		try {
+			const notification = new Notification(
+				`${i18n.t("tickets.notification.message")} ${contact.name}`,
+				options
 			);
-			if (notfiticationIndex !== -1) {
-				prevState[notfiticationIndex] = notification;
-				return [...prevState];
-			}
-			return [notification, ...prevState];
-		});
-	
-	} catch (e) {
-		console.error("Failed to push browser notification");
-	  }
 
-		soundAlertRef.current();
+			notification.onclick = e => {
+				e.preventDefault();
+				window.focus();
+				historyRef.current.push(`/tickets/${ticket.uuid}`);
+				// handleChangeTab(null, ticket.isGroup? "group" : "open");
+			};
+
+			setDesktopNotifications(prevState => {
+				const notfiticationIndex = prevState.findIndex(
+					n => n.tag === notification.tag
+				);
+				if (notfiticationIndex !== -1) {
+					prevState[notfiticationIndex] = notification;
+					return [...prevState];
+				}
+				return [notification, ...prevState];
+			});
+
+		} catch (e) {
+			console.error("Failed to push browser notification");
+		}
+
+		playSound();
 	};
 
 	const handleClick = () => {
@@ -232,7 +234,7 @@ const NotificationsPopOver = (volume) => {
 				ref={anchorEl}
 				aria-label="Open Notifications"
 				color="inherit"
-				style={{color:"white"}}
+				style={{ color: "white" }}
 			>
 				<Badge overlap="rectangular" badgeContent={notifications.length} color="secondary">
 					<ChatIcon />

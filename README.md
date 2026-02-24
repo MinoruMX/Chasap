@@ -18,8 +18,7 @@
 
 ## 🛠 INSTALACIÓN
 ### VIDEO INSTALACIÓN WINDOWS: https://www.youtube.com/watch?v=0NMyzdb_SPQ
-### VIDEO INSTALACIÓN LINUX:
-### VIDEO INSTALACIÓN VPS:
+### TUTORIALES: https://chasap.com/tutorial.html
 
 ### ⚡ REQUISITOS PREVIOS
 

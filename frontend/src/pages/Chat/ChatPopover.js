@@ -25,7 +25,6 @@ import { useDate } from "../../hooks/useDate";
 import { AuthContext } from "../../context/Auth/AuthContext";
 
 import notifySound from "../../assets/chat_notify.mp3";
-import useSound from "use-sound";
 import { i18n } from "../../translate/i18n";
 
 const useStyles = makeStyles((theme) => ({
@@ -108,20 +107,24 @@ export default function ChatPopover() {
   const [chats, dispatch] = useReducer(reducer, []);
   const [invisible, setInvisible] = useState(true);
   const { datetimeToClient } = useDate();
-  const [play] = useSound(notifySound);
-  const soundAlertRef = useRef();
-
   const socketManager = useContext(SocketContext);
 
-  useEffect(() => {
-    soundAlertRef.current = play;
+  const playSound = () => {
+    try {
+      const audio = new Audio(notifySound);
+      audio.play().catch(e => console.warn("No se pudo reproducir el sonido (posible bloqueo del navegador):", e));
+    } catch (e) {
+      console.warn("Error al intentar reproducir sonido:", e);
+    }
+  };
 
+  useEffect(() => {
     if (!("Notification" in window)) {
       console.log("This browser doesn't support notifications");
     } else {
       Notification.requestPermission();
     }
-  }, [play]);
+  }, []);
 
   useEffect(() => {
     dispatch({ type: "RESET" });
@@ -141,16 +144,16 @@ export default function ChatPopover() {
     const companyId = localStorage.getItem("companyId");
     const socket = socketManager.getSocket(companyId);
     if (!socket) {
-      return () => {}; 
+      return () => { };
     }
-    
+
     socket.on(`company-${companyId}-chat`, (data) => {
       if (data.action === "new-message") {
         dispatch({ type: "CHANGE_CHAT", payload: data });
         const userIds = data.newMessage.chat.users.map(userObj => userObj.userId);
 
         if (userIds.includes(user.id) && data.newMessage.senderId !== user.id) {
-          soundAlertRef.current();
+          playSound();
         }
       }
       if (data.action === "update") {
