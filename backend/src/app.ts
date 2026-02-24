@@ -33,7 +33,7 @@ app.set("queues", {
   sendScheduledMessages
 });
 
-app.use(bodyParser.json({ 
+app.use(bodyParser.json({
   limit: '10mb',
   verify: (req, res, buf) => {
     req.rawBody = buf;

@@ -1,11 +1,14 @@
 import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
-    up: (queryInterface: QueryInterface) => {
-        return queryInterface.addColumn("Contacts", "lgpdAcceptedAt", {
-            type: DataTypes.DATE,
-            allowNull: true
-        });
+    up: async (queryInterface: QueryInterface) => {
+        const tableInfo: any = await queryInterface.describeTable("Contacts");
+        if (!tableInfo.lgpdAcceptedAt) {
+            return queryInterface.addColumn("Contacts", "lgpdAcceptedAt", {
+                type: DataTypes.DATE,
+                allowNull: true
+            });
+        }
     },
 
     down: (queryInterface: QueryInterface) => {
